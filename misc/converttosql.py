@@ -4,7 +4,7 @@ def text_to_sql(file_path, table_name):
         lines = file.readlines()
     
     # Define the SQL INSERT prefix
-    sql_prefix = f"INSERT INTO {table_name} (id, name, traits, sun, water_freq_weekly, location_id) VALUES\n"
+    sql_prefix = f"INSERT INTO {table_name} (id, name, traits, sun, water_freq_weekly) VALUES\n"
     
     # Process each line and format it into an SQL value list
     sql_values = []
