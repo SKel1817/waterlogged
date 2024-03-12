@@ -17,11 +17,11 @@ CREATE TABLE `plants` (
   `id` int NOT NULL,
   `name` varchar(225) DEFAULT NULL,
   `traits` mediumtext DEFAULT NULL,
-  `sun` varchar(255)) DEFAULT NULL,
+  `sun` varchar(255) DEFAULT NULL,
   `water_freq_weekly` varchar(255) DEFAULT NULL,
   `location_id` int, -- Adding a separate column for the foreign key
   PRIMARY KEY (`id`),
-  CONSTRAINT `location_id_fk` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) -- Adjusting the foreign key constraint
+  CONSTRAINT `location_id_fk` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`)) -- Adjusting the foreign key constraint
   ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
