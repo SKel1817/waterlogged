@@ -49,7 +49,7 @@ CREATE TABLE `user_plants` (
 
 -- logs
 CREATE TABLE `logs` (
-  `id` int NOT NULL,
+  `id` int not null auto_increment,
   `user_plant_id` int DEFAULT NULL,
   `date_watered` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
