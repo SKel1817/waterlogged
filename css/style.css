@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #24b679;
+  font-size: large;
+}
+
+#Main {
+  background-color: #d9d9d9;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  margin-top: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#label {
+  background-color: rgba(0, 0, 0, 0);
+  font-size: large;
+}
+
+#smLabel {
+  background-color: rgba(0, 0, 0, 0);
+  font-size: small;
+}
+
+article {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.lbUP {
+  background-color: #d9d9d9;
+}
+
+#urIN {
+  background-color: #24863a;
+}
