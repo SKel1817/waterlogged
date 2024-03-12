@@ -5,9 +5,9 @@ USE waterlogged;
 -- locations
 CREATE TABLE `locations` (
   `id` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `temperature` int DEFAULT NULL,
-  `climate` varchar(45) DEFAULT NULL,
+  `climate` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -15,21 +15,21 @@ CREATE TABLE `locations` (
 
 CREATE TABLE `plants` (
   `id` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `traits` varchar(45) DEFAULT NULL,
-  `sun` varchar(45) DEFAULT NULL,
-  `water_freq_weekly` varchar(45) DEFAULT NULL,
+  `name` varchar(225) DEFAULT NULL,
+  `traits` mediumtext DEFAULT NULL,
+  `sun` varchar(255)) DEFAULT NULL,
+  `water_freq_weekly` varchar(255) DEFAULT NULL,
   `location_id` int, -- Adding a separate column for the foreign key
   PRIMARY KEY (`id`),
   CONSTRAINT `location_id_fk` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) -- Adjusting the foreign key constraint
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- users
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
