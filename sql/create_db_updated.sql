@@ -21,8 +21,8 @@ CREATE TABLE `plants` (
   `water_freq_weekly` varchar(255) DEFAULT NULL,
   `location_id` int, -- Adding a separate column for the foreign key
   PRIMARY KEY (`id`),
-  CONSTRAINT `location_id_fk` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`)) -- Adjusting the foreign key constraint
-  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `location_id_fk` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) -- Adjusting the foreign key constraint
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- users
