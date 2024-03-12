@@ -6,6 +6,18 @@
   font-size: large;
 }
 
+/* .header {
+  height: 150px;
+  width:300px;
+  margin: auto;
+  margin-top: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */
+
 #Main {
   background-color: #d9d9d9;
   width: 60%;
@@ -41,4 +53,17 @@ article {
 
 #urIN {
   background-color: #24863a;
+}
+
+button {
+  color: white;
+  width: 40%;
+}
+
+#register {
+  background-color: #000000;
+}
+
+#login {
+  background-color: #38fa63;
 }
