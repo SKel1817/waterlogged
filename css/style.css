@@ -1,69 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #24b679;
-  font-size: large;
+/* 
+Colours 
+#38fa63
+#24863a
+#d9d9d9
+*/
+
+.layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+
+  justify-content: space-around;
+  align-content: space-around;
+  text-align: center;
 }
 
-/* .header {
-  height: 150px;
-  width:300px;
-  margin: auto;
-  margin-top: 15%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-} */
-
-#Main {
-  background-color: #d9d9d9;
-  width: 60%;
-  height: 60%;
-  margin: auto;
-  margin-top: 15%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+div {
+  border: 1px solid black;
 }
 
-#label {
-  background-color: rgba(0, 0, 0, 0);
-  font-size: large;
-}
-
-#smLabel {
-  background-color: rgba(0, 0, 0, 0);
-  font-size: small;
-}
-
-article {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
-}
-
-.lbUP {
-  background-color: #d9d9d9;
-}
-
-#urIN {
-  background-color: #24863a;
-}
-
-button {
-  color: white;
-  width: 40%;
-}
-
-#register {
-  background-color: #000000;
-}
-
-#login {
-  background-color: #38fa63;
+.CM {
+  margin: 10%;
+  padding: 10%;
 }
