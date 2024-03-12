@@ -1,0 +1,13 @@
+insert into locations(id, name, temperature, climate) values 
+(1,'Tropical Rainforest',	82,	'warm and wet')
+,(2,'Temperate Forest',	50,	'moist, warm summers and frosty winters')
+,(3,'BoReal Forest',	30,	'cold winds and air')
+,(4,'Tundra',	15,	'Extreme cold temperatures, and very low light')
+,(5,'Shrubland',	70,	'hot and dry;cool and most winters')
+,(6,'Desert',	100,	'hot and dry')
+,(7,'Grassland',	50,	'warm and dry')
+,(8,'Lentic',	null,	'standing water')
+,(9,'Littoral',	null,	'seashore')
+,(10,'Lotic',	null,	'moving water')
+,(11,'coral reef', 	70,	'warm and full of sun')
+,(12,'Oceanic',	40,	'varies widly')
