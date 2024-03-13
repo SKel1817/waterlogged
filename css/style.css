@@ -2,11 +2,19 @@
 Colours 
 #38fa63
 #24863a
+#24B679
 #d9d9d9
 */
+body {
+  background-color: #24b679;
+}
+
+/* div {
+  border: 1px solid black;
+} */
 
 .layout {
-  height: 100%;
+  width: 100%;
 
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -17,11 +25,71 @@ Colours
   text-align: center;
 }
 
-div {
-  border: 1px solid black;
+.TM {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.TM #overlayText {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: larger;
+}
+
+.TM #smOverlayText {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: small;
+}
+
+.TM text {
+  color: #38fa63;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.TM #wasser {
+  width: 75%;
+}
+
+.TR {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+#wlLogo {
+  width: 25%;
 }
 
 .CM {
+  background-color: #d9d9d9;
   margin: 10%;
   padding: 10%;
+}
+
+.CM input {
+  background-color: #24863a;
+  color: #ffffff;
+}
+
+.CM button {
+  width: 40%;
+  height: 20%;
+}
+.Register {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.Login {
+  background-color: #38fa63;
+}
+
+#usLog {
+  color: #38fa63;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
