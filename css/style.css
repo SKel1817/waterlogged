@@ -7,6 +7,7 @@ Colours
 */
 body {
   background-color: #24b679;
+  font-family: "Inter";
 }
 
 /* div {
@@ -80,6 +81,7 @@ body {
   width: 40%;
   height: 20%;
 }
+
 .Register {
   background-color: #000000;
   color: #ffffff;
@@ -87,6 +89,15 @@ body {
 
 .Login {
   background-color: #38fa63;
+}
+
+.CM .lbl {
+  color: #ffffff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.CM .urMOM {
+  color: #ffffff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #usLog {
