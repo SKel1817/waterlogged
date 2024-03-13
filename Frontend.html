@@ -47,7 +47,7 @@
             .Waterlogged, .ForAllYourPlantCareNeeds {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-.centered-image {
+/* .centered-image {
     position: fixed;
     top: 50%;
     left: 50%; 
@@ -67,7 +67,26 @@
     justify-content: center;
     align-items: center;
     z-index:2;
-}
+} */
+.full-screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index:2;
+    }
+    .centered-image {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        width: 100%;
+        height: 100%;
+    }
  */
         </style>
     </head>
