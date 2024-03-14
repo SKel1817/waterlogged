@@ -14,6 +14,14 @@ body {
   border: 1px solid black;
 } */
 
+.leafs {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .layout {
   width: 100%;
 
