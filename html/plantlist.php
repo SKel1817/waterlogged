@@ -40,6 +40,13 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
+        // Initialize the variable to ensure it has a default value
+        $location_id = 0;
+
+        // Check if 'location_id' is set in the GET request
+        if (isset($_GET['location_id']) && is_numeric($_GET['location_id'])) {
+            $location_id = $conn->real_escape_string($_GET['location_id']);
+        }
 		// Your SQL query
 		$sql = "SELECT name, traits, sun, water_freq_weekly FROM plants where location_id = 1";
 

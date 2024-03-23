@@ -26,18 +26,29 @@
       </nav>
     </header>
     <section class="layout">
-      <div><article>Tropical Rainforest</article></div>
-      <div><article>Temperate Forest</article></div>
-      <div><article>Boreal Forest</article></div>
-      <div><article>Tundra</article></div>
-      <div><article>Shruband</article></div>
-      <div><article>Desert</article></div>
-      <div><article>Grassland</article></div>
-      <div><article>Lentic</article></div>
-      <div><article>Littoral</article></div>
-      <div><article>Lotic</article></div>
-      <div><article>Coral Reef</article></div>
-      <div><article>Oceanic</article></div>
+      <?php
+       // Database connection details
+        $servername = "localhost";
+        $username = "cof";
+        $password = "cOwmoo1324!";
+        $dbname = "waterlogged";
+
+       // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+       // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+      // Assuming you have a database connection established
+      $sql = "SELECT name from locations";
+
+      $result = $conn->query($sql);
+
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div><article><a href="../waterlogged/html/plantlist.php?location_id=' . $row['location_id'] . '" class="location-button">' . $row['name'] . '</a></article></div>';
+      }
+      ?>
     </section>
   </body>
 </html>
