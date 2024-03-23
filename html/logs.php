@@ -19,10 +19,10 @@
             <li><a href="./users.html">Log In</a></li>
         </ul>
     </nav>
-    <table style="width:100%; table-layout: fixed;">
+    <table style="width:100%; table-layout: fixed;border: 8px solid brown;">
         <tr>
-            <td style="border: 1px solid black;">plant name</td>
-            <td style="border: 1px solid black;">date watered</td>
+            <td style="border: 5px solid green;">plant name</td>
+            <td style="border: 5px solid green;">date watered</td>
         </tr>
         <?php
         // Database connection details
@@ -54,13 +54,14 @@
 		if ($result->num_rows > 0) {
 		    // Output data of each row
 		    while($row = $result->fetch_assoc()) {
-		        echo "<tr><td style='border: 1px solid black;'>" . $row["PlantName"] . "</td><td style='border: 1px solid black;'>" . $row["DateWatered"] . "</td></tr>";
+		        echo "<tr><td style='border: 5px solid green;'>" . $row["PlantName"] . "</td><td style='border: 5px solid brown;'>" . $row["DateWatered"] . "</td></tr>";
 		    }
 		} else {
-		    echo "<tr><td colspan='2' style='border: 1px solid black;'>0 results</td></tr>";
+		    echo "<tr><td colspan='2' style='border: 5px solid green;'>0 results</td></tr>";
 		}
 		$conn->close();
         ?>
     </table>
 </body>
 </html>
+
