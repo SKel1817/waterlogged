@@ -8,7 +8,7 @@ $sql = "SELECT name FROM locations JOIN images ON locations.id = images.location
 <!-- plants for a given location -->
 <?php
 
-$sql = "SELECT name, image FROM plants WHERE location_id = $location_id";
+$sql = "SELECT name, traits, sun, water_freq_weekly FROM plants WHERE location_id = $location_id";
 
 ?>
 
