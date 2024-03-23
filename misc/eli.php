@@ -15,7 +15,15 @@ $sql = "SELECT name, traits, sun, water_freq_weekly FROM plants WHERE location_i
 <!-- plants -->
 <?php
 
-$sql = "SELECT name, image FROM plants";
+$sql = "
+SELECT
+    pl.name AS PlantName,
+    img.path AS ImagePath
+FROM
+    plants pl
+JOIN
+    images img ON pl.id = img.plant_id
+";
 
 ?>
 
