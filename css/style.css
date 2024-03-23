@@ -101,3 +101,14 @@ nav {
 #shelf1 div img {
   width: 100%;
 }
+
+.please {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
+
