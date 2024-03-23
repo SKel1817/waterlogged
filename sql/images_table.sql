@@ -2,8 +2,8 @@ CREATE TABLE images (
     plant_id INT NULL,
     location_id INT NULL,
     path VARCHAR(255) NOT NULL,
-    CONSTRAINT fk_plant FOREIGN KEY (plant_id) REFERENCES plants(id),
-    CONSTRAINT fk_location FOREIGN KEY (location_id) REFERENCES locations(id),
+    CONSTRAINT fk_plant FOREIGN KEY (plant_id) REFERENCES waterlogged.plants(id),
+    CONSTRAINT fk_location FOREIGN KEY (location_id) REFERENCES waterlogged.locations(id),
     CONSTRAINT chk_images CHECK ((plant_id IS NOT NULL AND location_id IS NULL) OR (plant_id IS NULL AND location_id IS NOT NULL))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
