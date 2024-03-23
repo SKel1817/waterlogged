@@ -1,4 +1,3 @@
-GNU nano 4.8                                                                                                        logs.php                                                                                                                   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,14 +21,13 @@ GNU nano 4.8                                                                    
     </nav>
     <table style="width:100%; table-layout: fixed;">
         <tr>
-            <td style="border: 1px solid black;">id</td>
-            <td style="border: 1px solid black;">plant id</td>
+            <td style="border: 1px solid black;">plant name</td>
             <td style="border: 1px solid black;">date watered</td>
         </tr>
         <?php
         // Database connection details
         $servername = "localhost";
-        $username = "cow";
+        $username = "cof";
         $password = "cOwmoo1324!";
         $dbname = "waterlogged";
 
@@ -40,19 +38,28 @@ GNU nano 4.8                                                                    
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
+		// Your SQL query
+		$sql = "SELECT
+		            p.name AS PlantName,
+		            l.date_watered AS DateWatered
+		        FROM
+		            logs as l
+		        INNER JOIN user_plants up ON l.user_plant_id = up.id
+		        INNER JOIN plants as p ON up.plant_id = p.id
+		        ORDER BY
+		            l.date_watered DESC;";
 
-        $sql = "SELECT * FROM logs WHERE plant_id in (SELECT id FROM user_plants WHERE user_id = $user_id)";
-        $result = $conn->query($sql);
+		$result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td style='border: 1px solid black;'>" . $row["id"] . "</td><td style='border: 1px solid black;'>" . $row["date_watered"] . "</td></tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3' style='border: 1px solid black;'>0 results</td></tr>";
-        }
-        $conn->close();
+		if ($result->num_rows > 0) {
+		    // Output data of each row
+		    while($row = $result->fetch_assoc()) {
+		        echo "<tr><td style='border: 1px solid black;'>" . $row["PlantName"] . "</td><td style='border: 1px solid black;'>" . $row["DateWatered"] . "</td></tr>";
+		    }
+		} else {
+		    echo "<tr><td colspan='2' style='border: 1px solid black;'>0 results</td></tr>";
+		}
+		$conn->close();
         ?>
     </table>
 </body>
