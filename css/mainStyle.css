@@ -55,6 +55,17 @@ article {
   height: 30vh;
   border: #809d66 2px solid;
   border-radius: 5%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#registerForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .login {
@@ -87,6 +98,19 @@ article {
 }
 
 .location-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #4CAF50; /* or any color you prefer */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-button {
   display: inline-block;
   padding: 10px 20px;
   margin: 5px;
