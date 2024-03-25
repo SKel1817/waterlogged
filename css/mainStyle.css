@@ -61,6 +61,12 @@ article {
   transform: translate(-50%, -50%);
 }
 
+article img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+
 #registerForm {
   position: absolute;
   top: 50%;

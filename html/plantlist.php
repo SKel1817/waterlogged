@@ -1,3 +1,58 @@
+<?php
+    session_start();
+    // Database connection details
+    $servername = "localhost";
+    $username = "user";
+    $password = "pass!";
+    $dbname = "waterlogged";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+     // Initialize the variable to ensure it has a default value
+    $location_id = 0;
+    $userLoggedIn = isset($_SESSION['user_id']);
+    $locationName = "";
+    $locationTemperature = "";
+    $locationClimate = "";
+
+
+     // Check if 'location_id' is set in the GET request
+    if (isset($_GET['location_id']) && is_numeric($_GET['location_id'])) {
+        $location_id = $conn->real_escape_string($_GET['location_id']);
+    }
+     // Your SQL query
+    $sql = "SELECT 
+    l.name as location_name, 
+    l.temperature,
+    l.climate,
+    p.name, 
+    traits, 
+    sun, 
+    water_freq_weekly,
+    images.path 
+    FROM plants as p 
+    join images on p.id = images.plant_id
+    join locations as l on p.location_id = l.id
+    where p.location_id = $location_id;";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $firstRow = $result->fetch_assoc();
+        $locationName = $firstRow["location_name"]; // Make sure "name" matches your column name in SQL
+        $locationTemperature = $firstRow["temperature"]; // Match column name
+        $locationClimate = $firstRow["climate"]; // Match column name
+        // If the column names are prefixed with 'l.' in your database, use that exact name.
+        
+        // Then you reset the pointer to the beginning
+        $result->data_seek(0);
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,64 +74,44 @@
             <li><a href="./users.html">Log In</a></li>
         </ul>
     </nav>
+    <h1><?php echo htmlspecialchars($locationName); ?> Plant List</h1>
+    <p>Temperature: <?php echo htmlspecialchars($locationTemperature); ?></p>
+    <p>Climate: <?php echo htmlspecialchars($locationClimate); ?></p>
     <table style="width:100%; table-layout: fixed;">
-        <tr>
-            <td style="border: 1px solid black;">plant</td>
-            <td style="border: 1px solid black;">traits</td>
-            <td style="border: 1px solid black;">sun</td>
-            <td style="border: 1px solid black;">water</td>
-        </tr>
-    <?php
-        session_start();
-        // Database connection details
-        $servername = "localhost";
-        $username = "user";
-        $password = "pass!";
-        $dbname = "waterlogged";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        // Initialize the variable to ensure it has a default value
-        $location_id = 0;
-        $userLoggedIn = isset($_SESSION['user_id']);
-
-        // Check if 'location_id' is set in the GET request
-        if (isset($_GET['location_id']) && is_numeric($_GET['location_id'])) {
-            $location_id = $conn->real_escape_string($_GET['location_id']);
-        }
-		// Your SQL query
-		$sql = "SELECT name, traits, sun, water_freq_weekly FROM plants where location_id = $location_id;";
-
-		$result = $conn->query($sql);
-
-        if ($result->num_rows > 0):
-            while($row = $result->fetch_assoc()):
-                echo "<tr>";
-                echo "<td style='border: 1px solid black;'>" . $row["name"] . "</td>";
-                echo "<td style='border: 1px solid black;'>" . $row["traits"] . "</td>";
-                echo "<td style='border: 1px solid black;'>" . $row["sun"] . "</td>";
-                echo "<td style='border: 1px solid black;'>" . $row["water_freq_weekly"] . "</td>";
-                if ($userLoggedIn):
-                    echo "<td style='border: 1px solid black;'>";
-                    echo "<form method='post' action='addToShelf.php'>";
-                    echo "<input type='hidden' name='plant_id' value='" . $row['id'] . "'>";
-                    echo "<input type='hidden' name='user_id' value='" . $_SESSION['user_id'] . "'>";
-                    echo "<input type='hidden' name='location_id' value='" . $location_id . "'>";
-                    echo "<input type='submit' name='add_to_shelf' value='Add to My Shelf'>";
-                    echo "</form>";
-                    echo "</td>";
-                endif;
-                echo "</tr>";
-            endwhile;
-        else:
-            echo "<tr><td colspan='4' style='border: 1px solid black;'>0 results</td></tr>";
-        endif;
-    ?>
+    <tr>
+        <th style="border: 1px solid black;">Image</th>
+        <th style="border: 1px solid black;">Plant</th>
+        <th style="border: 1px solid black;">Traits</th>
+        <th style="border: 1px solid black;">Sun</th>
+        <th style="border: 1px solid black;">Water</th>
+        <?php if ($userLoggedIn): ?>
+            <th style="border: 1px solid black;">Action</th>
+        <?php endif; ?>
+    </tr>
+    <?php if ($result->num_rows > 0): ?>
+            <?php while($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td style='border: 1px solid black; width:30px'>
+                        <img src="../<?php echo htmlspecialchars($row['path']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" style="width:50px;height:auto;">
+                    </td>
+                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["name"]); ?></td>
+                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["traits"]); ?></td>
+                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["sun"]); ?></td>
+                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["water_freq_weekly"]); ?></td>
+                    <?php if ($userLoggedIn): ?>
+                        <td style='border: 1px solid black;'>
+                            <form method='post' action='addToShelf.php'>
+                                <input type='hidden' name='plant_id' value='<?php echo htmlspecialchars($row['id']); ?>'>
+                                <input type='hidden' name='user_id' value='<?php echo htmlspecialchars($_SESSION['user_id']); ?>'>
+                                <input type='submit' name='add_to_shelf' value='Add to My Shelf'>
+                            </form>
+                        </td>
+                    <?php endif; ?>
+                </tr>
+            <?php endwhile; ?>
+        <?php else: ?>
+            <tr><td colspan='5' style='border: 1px solid black;'>0 results</td></tr>
+        <?php endif; ?>
     </table>
 </body>
 </html>

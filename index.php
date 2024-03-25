@@ -19,9 +19,9 @@
         <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
         <ul>
           <li><a href="#">Plant Home</a></li>
-          <li><a href="./html/myPlants.html">My Plants</a></li>
+          <li><a href="./html/myPlants.php">My Plants</a></li>
           <li><a href="./html/logs.php">Logs</a></li>
-          <li><a href="./html/users.html">Log In</a></li>
+          <li><a href="./html/users.php">Log In</a></li>
         </ul>
       </nav>
     </header>
@@ -40,15 +40,22 @@
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
-      // Assuming you have a database connection established
-      $sql = "SELECT name from locations";
+        // Your existing PHP code for the database connection
 
-      $result = $conn->query($sql);
+        $sql = "SELECT id, name, path from locations join images on locations.id = images.location_id";
+        $result = $conn->query($sql);
 
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo '<div><article><a href="../waterlogged/html/plantlist.php?location_id=' . $row['location_id'] . '" class="location-button">' . $row['name'] . '</a></article></div>';
-      }
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div><article>';
+            // Image
+            echo '<img src="' . htmlspecialchars($row['path']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:150px;height:150px; display:block; margin:auto;">';
+            // Button (styled link)
+            echo '<a href="../waterlogged/html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '" class="location-button" style="display:inline-block; margin:auto; text-align:center; background-color:#4CAF50; color:white; padding:10px 20px; text-decoration:none;">View ' . htmlspecialchars($row['name']) . '</a>';
+            echo '</article></div>';
+        }
+        
       ?>
     </section>
   </body>
 </html>
+
