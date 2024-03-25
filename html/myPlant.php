@@ -72,10 +72,16 @@ $conn->close();
       </ul>
     </nav>
     <div id="frame">
+        <?php $shelfIndex = 1; ?>
         <?php foreach ($userPlants as $index => $plantName): ?>
-            <section class="layout" id="shelf<?= ($index % 3) + 1 ?>">
-                <div><?= htmlspecialchars($plantName) ?></div>
+          <?php if ($index % 3 === 0): ?>
+            <section class="layout" id="shelf<?= $shelfIndex ?>">
+              <?php $shelfIndex++; ?>
+          <?php endif; ?>
+          <div><?= htmlspecialchars($plantName) ?></div>
+          <?php if (($index + 1) % 3 === 0 || $index === count($userPlants) - 1): ?>
             </section>
+          <?php endif; ?>
         <?php endforeach; ?>
         <?php if (empty($userPlants)): ?>
             <p>You have no plants yet.</p>
