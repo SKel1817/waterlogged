@@ -1,3 +1,4 @@
+GNU nano 4.8                                                                                                                                                                                                                                   logs.php                                                                                                                                                                                                                                    Modified  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +22,8 @@
     </nav>
     <table style="width:100%; table-layout: fixed;border: 8px solid brown;">
         <tr>
-            <td style="border: 5px solid green;">plant name</td>
-            <td style="border: 5px solid green;">date watered</td>
+            <td style="border: 3px solid green;">plant name</td>
+            <td style="border: 3px solid green;">date watered</td>
         </tr>
         <?php
 session_start();
@@ -73,10 +74,10 @@ if ($stmt = $conn->prepare($sql)) {
     if ($result->num_rows > 0) {
         // Output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "<tr><td style='border: 5px solid green;'>" . htmlspecialchars($row["PlantName"]) . "</td><td style='border: 5px solid brown;'>" . htmlspecialchars($row["DateWatered"]) . "</td></tr>";
+            echo "<tr><td style='border: 3px solid green;'>" . htmlspecialchars($row["PlantName"]) . "</td><td style='border: 3px solid green;'>" . htmlspecialchars($row["DateWatered"]) . "</td></tr>";
         }
     } else {
-        echo "<tr><td colspan='2' style='border: 5px solid green;'>No logs found</td></tr>";
+        echo "<tr><td colspan='2' style='border: 3px solid green;'>No logs found</td></tr>";
     }
     // Close the statement
     $stmt->close();
@@ -91,4 +92,3 @@ $conn->close();
     </table>
 </body>
 </html>
-

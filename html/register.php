@@ -1,3 +1,4 @@
+GNU nano 4.8                                                                                                                                                                                                                                 register.php                                                                                                                                                                                                                                            
 <?php
 session_start();
 
@@ -92,13 +93,14 @@ $conn->close();
         <?php endif; ?>
         <!-- Registration Form -->
         <article id="registerForm">
-            <h2>Register</h2>
             <form action="register.php" method="post">
-                <label for="new_username">Username:</label><br>
-                <input type="text" id="new_username" name="username" value=""><br>
-                <label for="new_password">Password:</label><br>
-                <input type="password" id="new_password" name="password" value=""><br><br>
-                <input type="submit" name="register" value="Register">
+            <h2 style="color: darkgreen; font-size: 35px;">Register</h2>
+            <label for="new_username" style="font-weight: bold; font-size: 20px;">Username:</label><br>
+            <input type="text" id="new_username" name="username" value="" style="background-color: #90EE90;"><br>
+            <label for="new_password"style="font-weight: bold; font-size: 20px;">Password:</label><br>
+            <input type="password" id="new_password" name="password" value="" style="background-color: #90EE90;"><br><br>
+            <input type="submit" name="register" value="Register" style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;">
+
             </form>
         </article>
     </section>
