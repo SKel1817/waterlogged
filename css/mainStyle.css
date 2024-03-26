@@ -289,45 +289,43 @@ article img {
   cursor: pointer;
 }
 
-.plant-detail-article {
-  background-color: #f0dbbc; /* Light background for the article */
-  border-radius: 10px; /* Rounded corners for the article */
-  padding: 20px; /* Space inside the article */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Adds a shadow to the article */
-  margin: 20px auto; /* Center the article with automatic horizontal margins, add space around it */
-  max-width: 300px; /* Maximum width of the article */
-  text-align: center; /* Center text */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #c3e6cb;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-.plant-detail-article img {
-  max-width: 100%; /* Ensure the image is not larger than the article */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px 10px 0 0; /* Rounded corners at the top of the image */
+.plant-image {
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.plant-detail-buttons {
-  margin-top: 15px; /* Add space between the text and the buttons */
+.plant-name {
+  font-size: 24px;
+  color: #155724;
 }
-
-.plant-detail-button {
-  background-color: #4CAF50; /* Green background for the button */
-  color: white; /* White text color */
-  padding: 10px 15px; /* Padding inside the button */
-  border: none; /* No border */
-  border-radius: 4px; /* Rounded corners for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  text-decoration: none; /* No underline for the text */
-  display: inline-block; /* Allow use of margin */
-  margin-right: 10px; /* Space between buttons */
+.plant-details {
+  font-size: 18px;
+  color: #155724;
 }
-
-/* If there are additional specific styles needed for delete or water buttons, add them here */
-.plant-detail-button-delete {
-  background-color: #d9534f; /* Red background for the delete button */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
 }
-
-.plant-detail-button-water {
-  background-color: #5bc0de; /* Blue background for the water button */
+.delete-button {
+  background-color: #f5c6cb;
+  color: #721c24;
+}
+.water-button {
+  background-color: #b8daff;
+  color: #004085;
 }
 text {
   color:white;
@@ -358,3 +356,21 @@ text {
   font-weight: bold;
   font-size: 20px;
 }
+/* Heading */
+.container .plant-name h2{
+  width:27% !important;
+  transform:translatex(0px) translatey(0px);
+ }
+ 
+ /* Plant name */
+ .container .plant-name{
+  width:597px;
+  transform:translatex(150px) translatey(-158px);
+ }
+ 
+ /* Plant details */
+ .container .plant-details{
+  width:68% !important;
+  transform:translatex(146px) translatey(-143px);
+ }
+ 

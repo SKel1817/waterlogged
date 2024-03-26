@@ -23,15 +23,17 @@ if ($conn->connect_error) {
 
 // SQL to get user plants
 $sql = "SELECT 
-plants.name,
-images.path
-FROM user_plants 
+users.id, 
+plants.id as plant_id, 
+plants.name, 
+images.path FROM user_plants 
 JOIN users ON user_plants.user_id = users.id 
 JOIN plants ON user_plants.plant_id = plants.id 
-Join images on plants.id = images.plant_id
+JOIN images on plants.id = images.plant_id 
 WHERE users.id = ?";
+
 $userPlants = [];
-$path =[];
+$imagePaths = []; // Corrected variable name
 
 if ($stmt = $conn->prepare($sql)) {
   // Bind the user id to the statement
@@ -41,12 +43,15 @@ if ($stmt = $conn->prepare($sql)) {
   $stmt->execute();
   
   // Bind the results to variables
-  $stmt->bind_result($plantName, $path);
+  $stmt->bind_result($userId, $plantId, $plantName, $imagePath);
   
   // Fetch the results into an array
   while ($stmt->fetch()) {
-    $userPlants[] = $plantName;
-    $path[] = $path;
+    $userPlants[] = [
+      'name' => $plantName, 
+      'imagePath' => $imagePath, 
+      'plant_Id' => $plantId  // Corrected variable name
+  ];
   }
   
   // Close the statement
@@ -81,24 +86,40 @@ $conn->close();
       </ul>
     </nav>
     <div id="frame">
-        <?php $shelfIndex = 1; ?>
-        <?php foreach ($userPlants as $index => $plantName): ?>
-          <?php if ($index % 3 === 0): ?>
-            <section class="layout" id="shelf<?= $shelfIndex ?>">
-              <?php $shelfIndex++; ?>
-          <?php endif; ?>
-          <div style="color: white">
-            <img src="../<?= htmlspecialchars($imagePath) ?>" alt="<?= htmlspecialchars($plantName) ?>" style="width:150px;height:150px; display:block; margin:auto;">
-          <?= htmlspecialchars($plantName) ?>
-          </div>
-          <?php if (($index + 1) % 3 === 0 || $index === count($userPlants) - 1): ?>
-            </section>
-          <?php endif; ?>
-        <?php endforeach; ?>
-        <?php if (empty($userPlants)): ?>
-            <p>You have no plants yet.</p>
-        <?php endif; ?>
+        <?php
+        $shelfIndex = 1;
+        if (!empty($userPlants)) {
+            foreach ($userPlants as $index => $plantDetails) {
+                // Open a new shelf section if it's a new row or the first plant
+                if ($index % 3 === 0) {
+                    if ($index > 0) {
+                        // Close the previous shelf if it's not the first plant
+                        echo '</section>';
+                    }
+                    echo '<section class="layout" id="shelf' . $shelfIndex . '">';
+                    $shelfIndex++;
+                }
+                 $detailsUrl = 'details.php?plant_id=' . urlencode($plantDetails['plant_id']) . '&user_id=' . urlencode($_SESSION['user_id']);
+
+                echo '<div style="color: white">';
+                echo '<a href="' . htmlspecialchars($detailsUrl) . '" style="text-decoration: none; color: inherit;">';
+                echo '<img src="../' . htmlspecialchars($plantDetails['imagePath']) . '" alt="' . htmlspecialchars($plantDetails['name']) . '" style="width:150px;height:150px; display:block; margin:auto;">';
+                echo htmlspecialchars($plantDetails['name']);
+                echo htmlspecialchars($plantDetails['plant_id']);
+                echo '</a>';
+                echo '</div>';
+
+                // Close the shelf section if it's the end of a row or the last plant
+                if (($index + 1) % 3 === 0 || $index === count($userPlants) - 1) {
+                    echo '</section>';
+                }
+            }
+        } else {
+            echo '<p>You have no plants yet.</p>';
+        }
+        ?>
     </div>
-    </div>
+</div>
+
   </body>
 </html>
