@@ -71,11 +71,13 @@ $conn->close();
   <body>
     <nav class="nav-links">
       <div class="logo">
+      <a href="../index.php">
         <img
           src="..\images\Waterlogged_Logo.png"
           alt="Waterlogged Logo"
           id="logo"
         />
+      </a>
       </div>
       <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
       <ul>

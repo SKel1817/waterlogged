@@ -63,7 +63,9 @@ $conn->close();
     <header>
         <nav class="nav-links">
             <div class="logo">
+            <a href="../index.php">
                 <img src="../images/Waterlogged_Logo.png" alt="Waterlogged Logo" id="logo"/>
+            </a>
             </div>
             <div class="please" style="position: absolute; left: 50%; transform: translateX(-50%);">
                 Waterlogged
@@ -93,18 +95,29 @@ $conn->close();
 
 
 
-                <form action="users.php" method="post">
+<form action="users.php" method="post">
 
-                   <h2 class="centered-heading" style="color: darkgreen; font-size: 35px;">Login</h2><br>
+       <h2 class="centered-heading" style="color: darkgreen; font-size: 35px;">Login</h2><br>
+       <div style="text-align: left; margin-left: 2%;">
+       <label for="username"style="font-weight: bold; font-size: 20px;"class="centered-label">Username:</label><br>
+       </div>
+       <div style="text-align: left; margin-left: 12.5%;">
+       <input type="text" id="username" name="username" value="" style="background-color: #90EE90;"class="centered-input">
+        </div>
+       <div style="text-align: left; margin-left: 2%;">
+        <label for="password"style="font-weight: bold; font-size: 20px;"class="centered-label">Password:</label><br>
+        </div>
+          <div style="text-align: left; margin-left: 12.5%;">
+         <input type="password" id="password" name="password" value="" style="background-color: #90EE90;"class="centered-input"><br>
 
-                    <label for="username"style="font-weight: bold; font-size: 20px;"class="centered-label">Username:</label><br>
-                    <input type="text" id="username" name="username" value="" style="background-color: #90EE90;"class="centered-input">
-                    <label for="password"style="font-weight: bold; font-size: 20px;"class="centered-label">Password:</label><br>
-                    <input type="password" id="password" name="password" value="" style="background-color: #90EE90;"class="centered-input"><br>
-
-                    <input type="submit" name="login" value="Login" style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;"class="centered-button"><br>
-                    <a class="register-button" href='../html/register.php'>Don't have an account? Register</a>
-                </form>  
+        </div><br>
+        <div style="text-align: left; margin-left: 12%;">
+        <input type="submit" name="login" value="Login" style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border>
+        </div>
+        <div style="text-align: left; margin-left: 12.5%;">
+        <a class="register-button" href='../html/register.php'>Don't have an account? Register</a>
+       </div>
+          </form>  
             </article>
         <?php endif; ?>
         <script>
