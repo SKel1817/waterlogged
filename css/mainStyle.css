@@ -332,3 +332,29 @@ article img {
 text {
   color:white;
 }
+.centered-heading {
+  text-align: center;
+}
+
+.centered-input {
+  display: block;
+  margin: 0 auto;
+  width: 50%; /* Adjust as needed */
+  background-color: #90EE90;
+}.centered-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%; /* Adjust as needed */
+}.centered-label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
