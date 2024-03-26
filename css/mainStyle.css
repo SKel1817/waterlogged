@@ -302,6 +302,9 @@ article img {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  width:150px;
+  height:150px; 
+  display:block; 
 }
 .plant-name {
   font-size: 24px;
@@ -334,6 +337,13 @@ text {
   text-align: center;
 }
 
+text {
+  color:white;
+}
+.centered-heading {
+  text-align: center;
+}
+
 .centered-input {
   display: block;
   margin: 0 auto;
@@ -356,21 +366,75 @@ text {
   font-weight: bold;
   font-size: 20px;
 }
+.centered-form {
+    text-align: center;
+}
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* Heading */
 .container .plant-name h2{
-  width:27% !important;
-  transform:translatex(0px) translatey(0px);
- }
- 
- /* Plant name */
- .container .plant-name{
-  width:597px;
-  transform:translatex(150px) translatey(-158px);
- }
- 
- /* Plant details */
- .container .plant-details{
-  width:68% !important;
-  transform:translatex(146px) translatey(-143px);
- }
- 
+ width:27% !important;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Plant name */
+.container .plant-name{
+ width:597px;
+ transform:translatex(150px) translatey(-158px);
+}
+
+/* Plant details */
+.container .plant-details{
+ width:68% !important;
+ transform:translatex(146px) translatey(-143px);
+}
+/* Button */
+.container .plant-detail-buttons .water-button{
+ transform:translatex(217px) translatey(-6px);
+}
+
+/* Button */
+.container .plant-detail-buttons .delete-button{
+ transform:translatex(66px) translatey(-5px);
+}
+
+/* Plant detail buttons */
+.container .plant-detail-buttons{
+ transform:translatex(-7px) translatey(-47px);
+}
+/* Form Division */
+.container .plant-detail-buttons form:nth-child(1){
+ width:43%;
+ transform:translatex(0px) translatey(-16px);
+}
+
+/* Form Division */
+.container .plant-detail-buttons form:nth-child(2){
+ width:36%;
+ transform:translatex(346px) translatey(-25px) !important;
+}
+
+/* Button */
+.plant-detail-buttons form .water-button{
+ transform:translatex(57px) translatey(-5px) !important;
+}
+
+/* Plant detail buttons */
+.container .plant-detail-buttons{
+ transform:translatex(-6px) translatey(-84px);
+}
+
+/* Form Division */
+.container .plant-detail-buttons form{
+ transform:translatex(16px) translatey(24px) !important;
+}
+
+/* Container */
+.container{
+ height:425px;
+}
+

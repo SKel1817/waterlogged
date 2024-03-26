@@ -1,4 +1,3 @@
-GNU nano 4.8                                                                                                                                                                                                                                   logs.php                                                                                                                                                                                                                                    Modified  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@ GNU nano 4.8                                                                    
         <div class="logo">
         <a href="../index.php">
             <img src="../images/Waterlogged_Logo.png" alt="Waterlogged Logo" id="logo"/>
-        </a>
+		</a>
         </div>
         <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
         <ul>
@@ -94,3 +93,4 @@ $conn->close();
     </table>
 </body>
 </html>
+

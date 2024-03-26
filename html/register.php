@@ -1,11 +1,10 @@
-GNU nano 4.8                                                                                                                                                                                                                                 register.php                                                                                                                                                                                                                                            
 <?php
 session_start();
 
 // Define variables for database connection
 $servername = "localhost";
 $dbUsername = "user";
-$dbPassword = "pass!";
+$dbPassword = "!";
 $dbname = "waterlogged";
 
 // Create database connection
@@ -76,7 +75,7 @@ $conn->close();
             <div class="logo">
             <a href="../index.php">
                 <img src="../images/Waterlogged_Logo.png" alt="Waterlogged Logo" id="logo"/>
-            </a>
+			</a>
             </div>
             <div class="please" style="position: absolute; left: 50%; transform: translateX(-50%);">
                 Waterlogged
@@ -107,15 +106,15 @@ $conn->close();
         </article>
     </section>
     <script>
-        document.getElementById('loginForm').addEventListener('input', function() {
-            var username = document.getElementById('new_username').value;
-            var password = document.getElementById('new_password').value;
-            if (username && password) {
-                document.getElementById('submitButton').disabled = false;
-            } else {
-                document.getElementById('submitButton').disabled = true;
-            }
-        });
+    	document.getElementById('loginForm').addEventListener('input', function() {
+    	  var username = document.getElementById('new_username').value;
+    	  var password = document.getElementById('new_password').value;
+    	  if (username && password) {
+    	    document.getElementById('submitButton').disabled = false;
+    	  } else {
+    	    document.getElementById('submitButton').disabled = true;
+    	  }
+    	});
     </script>
 </body>
 </html>

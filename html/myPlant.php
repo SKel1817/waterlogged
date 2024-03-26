@@ -22,9 +22,8 @@ if ($conn->connect_error) {
 }
 
 // SQL to get user plants
-$sql = "SELECT 
-users.id, 
-plants.id as plant_id, 
+$sql = "SELECT users.id, 
+plants.id as plant_Id, 
 plants.name, 
 images.path FROM user_plants 
 JOIN users ON user_plants.user_id = users.id 
@@ -48,11 +47,10 @@ if ($stmt = $conn->prepare($sql)) {
   // Fetch the results into an array
   while ($stmt->fetch()) {
     $userPlants[] = [
-      'name' => $plantName, 
-      'imagePath' => $imagePath, 
-      'plant_Id' => $plantId  // Corrected variable name
-  ];
-  }
+            'name' => $plantName, 
+            'imagePath' => $imagePath, 
+            'plant_Id' => $plantId  // Corrected variable name
+        ];  }
   
   // Close the statement
   $stmt->close();
@@ -77,7 +75,7 @@ $conn->close();
           alt="Waterlogged Logo"
           id="logo"
         />
-      </a>
+        </a>
       </div>
       <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
       <ul>
@@ -101,16 +99,15 @@ $conn->close();
                     echo '<section class="layout" id="shelf' . $shelfIndex . '">';
                     $shelfIndex++;
                 }
-                 $detailsUrl = 'details.php?plant_id=' . urlencode($plantDetails['plant_id']) . '&user_id=' . urlencode($_SESSION['user_id']);
-
+                 $detailsUrl = 'details.php?plant_id=' . urlencode($plantDetails['plant_Id']) . '&user_id=' . urlencode($_SESSION['user_id']);
+                
                 echo '<div style="color: white">';
                 echo '<a href="' . htmlspecialchars($detailsUrl) . '" style="text-decoration: none; color: inherit;">';
                 echo '<img src="../' . htmlspecialchars($plantDetails['imagePath']) . '" alt="' . htmlspecialchars($plantDetails['name']) . '" style="width:150px;height:150px; display:block; margin:auto;">';
                 echo htmlspecialchars($plantDetails['name']);
-                echo htmlspecialchars($plantDetails['plant_id']);
                 echo '</a>';
                 echo '</div>';
-
+                
                 // Close the shelf section if it's the end of a row or the last plant
                 if (($index + 1) % 3 === 0 || $index === count($userPlants) - 1) {
                     echo '</section>';

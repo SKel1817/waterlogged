@@ -10,13 +10,13 @@
     <header>
       <nav class="nav-links">
         <div class="logo">
-        <a href="3">
+        <a href="#">
           <img
             src=".\images\Waterlogged_Logo.png"
             alt="Waterlogged Logo"
             id="logo"
           />
-        </a>
+         </a>
         </div>
         <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
         <ul>
@@ -31,8 +31,8 @@
       <?php
        // Database connection details
         $servername = "localhost";
-        $username = "username";
-        $password = "password!";
+        $username = "user";
+        $password = "!";
         $dbname = "waterlogged";
 
        // Create connection
@@ -52,7 +52,7 @@
             // Image
             echo '<img src="' . htmlspecialchars($row['path']) . '" alt="' . htmlspecialchars($row['name']) . '">';
             // Button (styled link)
-            echo '<a href="../waterlogged/html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '" class="location-button">View ' . htmlspecialchars($row['name']) . '</a>';
+            echo '<a href="../html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '" class="location-button">View ' . htmlspecialchars($row['name']) . '</a>';
             echo '</article></div>';
         }
         

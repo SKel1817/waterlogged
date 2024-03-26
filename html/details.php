@@ -11,7 +11,7 @@
         <div class="logo">
         <a href="../index.php">
             <img src="../images/Waterlogged_Logo.png" alt="Waterlogged Logo" id="logo"/>
-        </a>
+		</a>
         </div>
         <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
         <ul>
@@ -21,141 +21,130 @@
             <li><a href="./users.php">Log In</a></li>
         </ul>
     </nav>
-    <div>
-    <article class="plant-detail-article">
-
-    
+    <div class="container">
     <?php
-    session_start();
+		session_start();
 
-    // Check if the user is not logged in, then redirect to login page
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: ./users.php");
-        exit();
-    }
+		// Check if the user is not logged in, then redirect to login page
+		if (!isset($_SESSION['user_id'])) {
+		    header("Location: ./users.php");
+		    exit();
+		}
 
-    // Database connection details
-    $servername = "localhost";
-    $username = "user";
-    $password = "pass!";
-    $dbname = "waterlogged";
+		// Validate the input
+		$plant_id = isset($_GET['plant_id']) ? (int)$_GET['plant_id'] : 0; // Cast to integer for safety
+		$user_id = $_SESSION['user_id'];
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+		// Database connection details
+		$servername = "localhost";
+		$username = "user";
+		$password = "pass!";
+		$dbname = "waterlogged";
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $action = $_POST['action'] ?? '';
-    
-    if ($action == 'water_plant') {
-        // Prepare statement to insert the water log
-        $water_sql = "INSERT INTO user_plants (id, user_id, plant_id, last_watered)
-        SELECT COALESCE(MAX(id), 0) + 1, $user_id, $plant_id, NOW() FROM user_plants;";
-        if ($water_stmt = $conn->prepare($water_sql)) {
-            // Assuming user_plant_id is needed, we'll need to retrieve it
-            // This will depend on your database schema
-            $user_id = $_SESSION['$user_id']; // You need to get the appropriate user_plant_id here
-            $plant_id = $_GET['plant_id'];
-            $water_stmt->bind_param("i", $user_plant_id);
-            $water_stmt->execute();
-            $water_stmt->close();
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
 
-            // Set a session message to confirm watering
-            $_SESSION['message'] = 'You have watered your plant.';
-        } else {
-            // Handle errors with preparing the statement
-            $_SESSION['message'] = "Error preparing statement: " . $conn->error;
-        }
-    } elseif ($action == 'delete_plant') {
-        // Prepare statement to delete the plant
-        $delete_sql = "DELETE FROM user_plants WHERE user_id = ? AND plant_id = ?";
-        if ($delete_stmt = $conn->prepare($delete_sql)) {
-            $delete_stmt->bind_param("ii", $user_id, $plant_id);
-            $delete_stmt->execute();
-            $delete_stmt->close();
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
+		    if ($_POST['action'] == 'water') {
+		        // Prepare your INSERT INTO user_plants SQL statement here
+		        // Since your query seemed a bit off, assuming you're updating the last_watered date:
+		        $updateSql = "UPDATE user_plants SET last_watered = NOW() WHERE user_id = ? AND plant_id = ?";
+		        if ($stmt = $conn->prepare($updateSql)) {
+		            $stmt->bind_param("ii", $user_id, $_POST['plant_id']);
+		            $stmt->execute();
+		            $stmt->close();
+		
+		            // Feedback message
+		            echo "<p>You have successfully watered your plant.</p>";
+		            header("Location: details.php?plant_id=" . $plant_id);
+		        }
+		    } elseif ($_POST['action'] == 'delete') {
+		        // Prepare your DELETE FROM user_plants SQL statement here
+		        $deleteSql = "DELETE FROM user_plants WHERE user_id = ? AND plant_id = ?";
+		        if ($stmt = $conn->prepare($deleteSql)) {
+		            $stmt->bind_param("ii", $user_id, $_POST['plant_id']);
+		            $stmt->execute();
+		            $stmt->close();
+		
+		            // Feedback message and potentially redirect or disable further actions
+		            echo "<p>The plant has been removed from your shelf.</p>";
+		            header("Location: ../html/myPlants.php");
+		        }
+		    }
+		    // It might be a good idea to redirect to avoid form resubmission issues
+		  
+		    exit();
+		}
+		
+		// Your SQL query
+		$sql = "SELECT
+		        p.name AS PlantName,
+		        p.sun,
+		        p.traits,
+		        p.water_freq_weekly,
+		        i.path
+		            FROM
+		                user_plants as up
+		            INNER JOIN plants as p ON up.plant_id = p.id
+		            Inner join images as i on p.id = i.plant_id
+		            WHERE up.user_id = ? and p.id = ?;";
 
-            // Set a session message to confirm deletion
-            $_SESSION['message'] = 'The plant has been deleted from your shelf.';
-        } else {
-            // Handle errors with preparing the statement
-            $_SESSION['message'] = "Error preparing statement: " . $conn->error;
-        }
-    }
+		// Prepare the SQL statement to prevent SQL injection
+		if ($stmt = $conn->prepare($sql)) {
+		    // Bind the user id and plant id to the statement
+		    $stmt->bind_param("ii", $user_id, $plant_id);
 
-        // After the action, redirect to prevent form resubmission
-        header("Location: ../html/myPlants.php");
-        exit();
-    }
-    
+		    // Execute the statement
+		    $stmt->execute();
 
-    // Your SQL query
-    $sql = "SELECT
-    p.name AS PlantName,
-    p.sun,
-    p.traits,
-    p.water_freq_weekly,
-    i.path
-        FROM
-            user_plants as up
-        INNER JOIN plants as p ON up.plant_id = p.id
-        Inner join images as i on p.id = i.plant_id
-        WHERE up.user_id = 3 and p.id = 11;";
+		    // Get the result of the query
+		    $result = $stmt->get_result();
 
-    // Prepare the SQL statement to prevent SQL injection
-    if ($stmt = $conn->prepare($sql)) {
-        // Bind the user id to the statement
-        $stmt->bind_param("i", $_SESSION['user_id']);
-
-        // Execute the statement
-        $stmt->execute();
-
-        // Get the result of the query
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            // Output data of the plant name, traits, water_freq_weekly date watered, and image
-            while($row = $result->fetch_assoc()) {
-                echo '<article class="plant-detail-article">';
-                echo '<img src="../images/' . htmlspecialchars($row['path']) . '" alt="Plant Image">';
-                echo '<h2>' . htmlspecialchars($row['PlantName']) . '</h2>';
-                echo '<p>' . htmlspecialchars($row['traits']) . '</p>';
-                echo '<p>Sun amount: ' . htmlspecialchars($row['sun']) . '</p>';
-                echo '<p>Water-Frequency: ' . htmlspecialchars($row['water_freq_weekly']) . '</p>';
-                echo '<div class="plant-detail-buttons">';
-                echo '<button class="plant-detail-button plant-detail-button-delete">Delete from shelf</button>';
-                echo '<button class="plant-detail-button plant-detail-button-water">Water Plant</button>';
-                echo '</div>';
-                echo '</article>';
-            }
-            if (isset($_SESSION['message'])) {
-                echo '<p class="message">' . htmlspecialchars($_SESSION['message']) . '</p>';
-                // Clear the message after displaying it
-                unset($_SESSION['message']);
-            }
-        // Close the statement
-        $stmt->close();
-    } else {
-        // Handle errors with preparing the statement
-        echo "Error preparing statement: " . $conn->error;
-        }
-    }
-    // Close the connection
-    $conn->close();
-?>
-    <form method="post" action="details.php?plant_id=<?= urlencode($plant_id) ?>">
-        <input type="hidden" name="action" value="water_plant">
-        <input type="submit" class="button water-button" value="Water Plant">
-    </form>
-
-    <!-- Delete Plant Form -->
-    <form method="post" action="details.php?plant_id=<?= urlencode($plant_id) ?>">
-        <input type="hidden" name="action" value="delete_plant">
-        <input type="submit" class="button delete-button" value="Delete from Shelf" onclick="return confirm('Are you sure you want to delete this plant from your shelf?');">
-    </form>
-    </article>
+		    if ($result->num_rows > 0) {
+		        // Output data of the plant name, traits, water_freq_weekly date watered, and image
+		        while($row = $result->fetch_assoc()) {
+		            echo '<div class="plant-image">';
+		            echo '<img class="plant-image" src="../' . htmlspecialchars($row['path']) . '" alt="Plant Image">';
+					echo '</div>';
+					echo '<div class="plant-name">';
+					echo '<h2>' . htmlspecialchars($row['PlantName']) . '</h2>';
+					echo '</div>';
+					echo '<div class="plant-details">';
+	                echo '<p>' . htmlspecialchars($row['traits']) . '</p>';
+	                echo '<br>';
+	                echo '<p>Sun amount: ' . htmlspecialchars($row['sun']) . '</p>';
+	                echo '<br>';
+	                echo '<p>Water-Frequency: ' . htmlspecialchars($row['water_freq_weekly']) . ' times a week</p>';
+					echo '</div>';
+		            	       } 
+		    } else {
+		        echo "No plant found with the given ID.";
+		    }
+		    // Close the statement
+		    $stmt->close();
+		} else {
+		    // Handle errors with preparing the statement
+		    echo "Error preparing statement: " . $conn->error;
+		}
+		// Close the connection
+		$conn->close();
+		?>
+		<div class="plant-detail-buttons">
+		<form method="POST" action="">
+		    <input type="hidden" name="action" value="delete">
+		    <input type="hidden" name="plant_id" value="<?= htmlspecialchars($plant_id) ?>">
+		    <button type="submit" class="button delete-button">Delete from Shelf</button>
+		</form>
+		<form method="POST" action="">
+		    <input type="hidden" name="action" value="water">
+		    <input type="hidden" name="plant_id" value="<?= htmlspecialchars($plant_id) ?>">
+		    <button type="submit" class="button water-button">Water Plant</button>
+		</form>
+		</div>
     </div>
 </body>
 </html>
