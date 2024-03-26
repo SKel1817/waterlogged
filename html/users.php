@@ -1,3 +1,4 @@
+GNU nano 4.8                                                                                                                                                                                                                                   users.php                                                                                                                                                                                                                                             
 <?php
 session_start();
 
@@ -88,15 +89,20 @@ $conn->close();
         <?php endif; ?>
         <!-- Login Form -->
         <?php if (!$loggedInUser): ?>
-            <article id="registerForm">
-                <h2>Login</h2>
+            <article id="registerForm" >
+
+
+
                 <form action="users.php" method="post">
                     <br>
-                    <label for="username">Username:</label><br>
-                    <input type="text" id="username" name="username" value=""><br>
-                    <label for="password">Password:</label><br>
-                    <input type="password" id="password" name="password" value=""><br><br>
-                    <input type="submit" name="login" value="Login">
+                   <h2 class="centered-heading" style="color: darkgreen; font-size: 35px;">Login</h2><br>
+
+                    <label for="username"style="font-weight: bold; font-size: 20px;"class="centered-label">Username:</label><br>
+                    <input type="text" id="username" name="username" value="" style="background-color: #90EE90;"class="centered-input"><br>
+                    <label for="password"style="font-weight: bold; font-size: 20px;"class="centered-label">Password:</label><br>
+                    <input type="password" id="password" name="password" value="" style="background-color: #90EE90;"class="centered-input"><br><br>
+
+                    <input type="submit" name="login" value="Login" style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;"class="centered-button"><br>
                     <a class="register-button" href='../html/register.php'>Don't have an account? Register</a>
                 </form>  
             </article>
