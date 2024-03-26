@@ -10,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
     // Database connection code...
     // Database connection details
     $servername = "localhost";
-    $username = "cof";
-    $password = "cOwmoo1324!";
+    $username = "user";
+    $password = "pass!";
     $dbname = "waterlogged";
 
     // Create connection

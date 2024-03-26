@@ -29,8 +29,8 @@
       <?php
        // Database connection details
         $servername = "localhost";
-        $username = "cof";
-        $password = "cOwmoo1324!";
+        $username = "username";
+        $password = "password!";
         $dbname = "waterlogged";
 
        // Create connection
@@ -48,9 +48,9 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<div><article>';
             // Image
-            echo '<img src="' . htmlspecialchars($row['path']) . '" alt="' . htmlspecialchars($row['name']) . '" style="width:150px;height:150px; display:block; margin:auto;">';
+            echo '<img src="' . htmlspecialchars($row['path']) . '" alt="' . htmlspecialchars($row['name']) . '">';
             // Button (styled link)
-            echo '<a href="../waterlogged/html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '" class="location-button" style="display:inline-block; margin:auto; text-align:center; background-color:#4CAF50; color:white; padding:10px 20px; text-decoration:none;">View ' . htmlspecialchars($row['name']) . '</a>';
+            echo '<a href="../waterlogged/html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '" class="location-button">View ' . htmlspecialchars($row['name']) . '</a>';
             echo '</article></div>';
         }
         

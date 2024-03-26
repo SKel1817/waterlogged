@@ -3,8 +3,8 @@ session_start();
 
 // Define variables for database connection
 $servername = "localhost";
-$dbUsername = "cof";
-$dbPassword = "cOwmoo1324!";
+$dbUsername = "user";
+$dbPassword = "pass!";
 $dbname = "waterlogged";
 
 // Create database connection

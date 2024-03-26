@@ -35,8 +35,8 @@ if (!isset($_SESSION['user_id'])) {
 
 // Database connection details
 $servername = "localhost";
-$username = "cof";
-$password = "cOwmoo1324!";
+$username = "user";
+$password = "pass!";
 $dbname = "waterlogged";
 
 // Create connection
