@@ -10,11 +10,13 @@
     <header>
       <nav class="nav-links">
         <div class="logo">
+        <a href="3">
           <img
             src=".\images\Waterlogged_Logo.png"
             alt="Waterlogged Logo"
             id="logo"
           />
+        </a>
         </div>
         <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
         <ul>
