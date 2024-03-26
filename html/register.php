@@ -93,16 +93,27 @@ $conn->close();
         <?php endif; ?>
         <!-- Registration Form -->
         <article id="registerForm">
-            <form action="register.php" method="post">
+            <form id="loginForm" action="register.php" method="post">
             <h2 style="color: darkgreen; font-size: 35px;">Register</h2>
             <label for="new_username" style="font-weight: bold; font-size: 20px;">Username:</label><br>
             <input type="text" id="new_username" name="username" value="" style="background-color: #90EE90;"><br>
             <label for="new_password"style="font-weight: bold; font-size: 20px;">Password:</label><br>
             <input type="password" id="new_password" name="password" value="" style="background-color: #90EE90;"><br><br>
-            <input type="submit" name="register" value="Register" style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;">
+            <input id="submitButton" type="submit" name="register" value="Register" disabled style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;">
 
             </form>
         </article>
     </section>
+    <script>
+        document.getElementById('loginForm').addEventListener('input', function() {
+            var username = document.getElementById('new_username').value;
+            var password = document.getElementById('new_password').value;
+            if (username && password) {
+                document.getElementById('submitButton').disabled = false;
+            } else {
+                document.getElementById('submitButton').disabled = true;
+            }
+        });
+    </script>
 </body>
 </html>
