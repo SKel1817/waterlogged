@@ -154,3 +154,207 @@ article img {
   font-weight: bold;
   font-size: 20px;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #a9cf87;
+}
+
+.please {
+  font-size: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #809d66;
+}
+
+.nav-links a {
+  color: #f0dbbc;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  font-size: 20px;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding-right: 25px;
+  margin-left: 10px;
+}
+
+#logo {
+  height: 75px;
+}
+
+.layout {
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+
+  justify-content: center;
+  align-content: center;
+}
+
+article {
+  margin-top: 15px;
+  height: 30vh;
+  border: #809d66 2px solid;
+  border-radius: 5%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+article img {
+  width:150px;
+  height:150px; 
+  display:block; 
+  margin:auto;
+}
+
+
+#registerForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login {
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+
+  justify-content: center;
+  align-content: center;
+}
+
+.login div {
+  display: flex;
+  justify-content: center;
+}
+
+/* please please lpelasepelas eplas pela e */
+
+.login article {
+  background-color: #d2d2d2;
+  border: #809d66 2px solid;
+  border-radius: 5%;
+  margin-top: 15px;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+.location-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #4CAF50; /* or any color you prefer */
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin:auto; 
+  text-decoration:none;
+}
+
+.register-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #4CAF50; /* or any color you prefer */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.plant-detail-article {
+  background-color: #f0dbbc; /* Light background for the article */
+  border-radius: 10px; /* Rounded corners for the article */
+  padding: 20px; /* Space inside the article */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Adds a shadow to the article */
+  margin: 20px auto; /* Center the article with automatic horizontal margins, add space around it */
+  max-width: 300px; /* Maximum width of the article */
+  text-align: center; /* Center text */
+}
+
+.plant-detail-article img {
+  max-width: 100%; /* Ensure the image is not larger than the article */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px 10px 0 0; /* Rounded corners at the top of the image */
+}
+
+.plant-detail-buttons {
+  margin-top: 15px; /* Add space between the text and the buttons */
+}
+
+.plant-detail-button {
+  background-color: #4CAF50; /* Green background for the button */
+  color: white; /* White text color */
+  padding: 10px 15px; /* Padding inside the button */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-decoration: none; /* No underline for the text */
+  display: inline-block; /* Allow use of margin */
+  margin-right: 10px; /* Space between buttons */
+}
+
+/* If there are additional specific styles needed for delete or water buttons, add them here */
+.plant-detail-button-delete {
+  background-color: #d9534f; /* Red background for the delete button */
+}
+
+.plant-detail-button-water {
+  background-color: #5bc0de; /* Blue background for the water button */
+}
+text {
+  color:white;
+}
+.centered-heading {
+  text-align: center;
+}
+
+.centered-input {
+  display: block;
+  margin: 0 auto;
+  width: 50%; /* Adjust as needed */
+  background-color: #90EE90;
+}.centered-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%; /* Adjust as needed */
+}.centered-label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}

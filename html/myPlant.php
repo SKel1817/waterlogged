@@ -9,8 +9,8 @@ if (!isset($_SESSION['user_id'])) {
 
 // Database connection details
 $servername = "localhost";
-$username = "cof"; // replace with your database username
-$password = "cOwmoo1324!"; // replace with your database password
+$username = "user"; // replace with your database username
+$password = "pass!"; // replace with your database password
 $dbname = "waterlogged";
 
 // Create connection
@@ -22,26 +22,35 @@ if ($conn->connect_error) {
 }
 
 // SQL to get user plants
-$sql = "SELECT plants.name FROM user_plants JOIN users ON user_plants.user_id = users.id JOIN plants ON user_plants.plant_id = plants.id WHERE users.id = ?";
+$sql = "SELECT 
+plants.name,
+images.path
+FROM user_plants 
+JOIN users ON user_plants.user_id = users.id 
+JOIN plants ON user_plants.plant_id = plants.id 
+Join images on plants.id = images.plant_id
+WHERE users.id = ?";
 $userPlants = [];
+$path =[];
 
 if ($stmt = $conn->prepare($sql)) {
-    // Bind the user id to the statement
-    $stmt->bind_param("i", $_SESSION['user_id']);
-    
-    // Execute the statement
-    $stmt->execute();
-    
-    // Bind the result to a variable
-    $stmt->bind_result($plantName);
-    
-    // Fetch the results into an array
-    while ($stmt->fetch()) {
-        $userPlants[] = $plantName;
-    }
-    
-    // Close the statement
-    $stmt->close();
+  // Bind the user id to the statement
+  $stmt->bind_param("i", $_SESSION['user_id']);
+  
+  // Execute the statement
+  $stmt->execute();
+  
+  // Bind the results to variables
+  $stmt->bind_result($plantName, $path);
+  
+  // Fetch the results into an array
+  while ($stmt->fetch()) {
+    $userPlants[] = $plantName;
+    $path[] = $path;
+  }
+  
+  // Close the statement
+  $stmt->close();
 }
 
 $conn->close();
@@ -78,7 +87,10 @@ $conn->close();
             <section class="layout" id="shelf<?= $shelfIndex ?>">
               <?php $shelfIndex++; ?>
           <?php endif; ?>
-          <div><?= htmlspecialchars($plantName) ?></div>
+          <div style="color: white">
+            <img src="../<?= htmlspecialchars($imagePath) ?>" alt="<?= htmlspecialchars($plantName) ?>" style="width:150px;height:150px; display:block; margin:auto;">
+          <?= htmlspecialchars($plantName) ?>
+          </div>
           <?php if (($index + 1) % 3 === 0 || $index === count($userPlants) - 1): ?>
             </section>
           <?php endif; ?>
