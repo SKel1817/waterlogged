@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
     // Database connection code...
     // Database connection details
     $servername = "localhost";
-    $username = "user";
-    $password = "pass";
+    $username = "cof";
+    $password = "cOwmoo1324!";
     $dbname = "waterlogged";
 
     // Create connection
@@ -26,8 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user_id'])) {
 
     $stmt = $conn->prepare("INSERT INTO user_plants (id, user_id, plant_id) SELECT COALESCE(MAX(id), 0) + 1, ? , ? FROM user_plants;");
     $stmt->bind_param("ii", $userId, $plantId);
-    $stmt->execute();
 
+	if ($stmt->execute()) {
+	    $_SESSION['added_to_shelf'] = true; // Indicate a plant was successfully added
+	}
+	
     // Redirect back to the plant list or show a success message
  	header('Location: plantlist.php?location_id=' . $location_id);
     exit();

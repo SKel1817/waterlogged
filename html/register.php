@@ -4,7 +4,7 @@ session_start();
 // Define variables for database connection
 $servername = "localhost";
 $dbUsername = "user";
-$dbPassword = "!";
+$dbPassword = "pass!";
 $dbname = "waterlogged";
 
 // Create database connection
@@ -95,13 +95,14 @@ $conn->close();
         <!-- Registration Form -->
         <article id="registerForm">
             <form id="loginForm" action="register.php" method="post">
-            <h2 style="color: darkgreen; font-size: 35px;">Register</h2>
-            <label for="new_username" style="font-weight: bold; font-size: 20px;">Username:</label><br>
-            <input type="text" id="new_username" name="username" value="" style="background-color: #90EE90;"><br>
-            <label for="new_password"style="font-weight: bold; font-size: 20px;">Password:</label><br>
-            <input type="password" id="new_password" name="password" value="" style="background-color: #90EE90;"><br><br>
-            <input id="submitButton" type="submit" name="register" value="Register" disabled style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;">
-
+            <h2 style="color: darkgreen; font-size: 35px;">Register</h2><br>
+            <label for="new_username" style="font-weight: bold; font-size: 20px;">Username:</label><br><br>
+            <input type="text" id="new_username" name="username" value="" style="background-color: #90EE90;"><br><br>
+            <label for="new_password"style="font-weight: bold; font-size: 20px;">Password:</label><br><br>
+            <input type="password" id="new_password" name="password" value="" style="background-color: #90EE90;"><br><br><br>
+            <div style="text-align: left; margin-right: 3%;">
+            <input id="submitButton" type="submit" name="register" value="Register" disabled style="background-color: #4CAF50; color: white; padding: 14px 20px; font-size: 20px; border: none; border-radius: 5px; cursor: pointer;"><br>
+            </div>
             </form>
         </article>
     </section>

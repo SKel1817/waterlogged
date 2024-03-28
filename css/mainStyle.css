@@ -67,13 +67,6 @@ article img {
 }
 
 
-#registerForm {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .login {
   width: 100%;
 
@@ -83,11 +76,14 @@ article img {
 
   justify-content: center;
   align-content: center;
+
 }
 
 .login div {
   display: flex;
   justify-content: center;
+
+
 }
 
 /* please please lpelasepelas eplas pela e */
@@ -100,7 +96,8 @@ article img {
   height: 50vh;
   width: 50vw;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
+  
 }
 
 .location-button {
@@ -224,14 +221,16 @@ article img {
   display:block; 
   margin:auto;
 }
-
-
 #registerForm {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow:0px 0px 10px 0px #000000;
+  background:linear-gradient(to top, #ada996 0%, #dbdbdb 50%, #f2f2f2 92%, #eaeaea 100%);
+  
 }
+
 
 .login {
   width: 100%;
@@ -433,8 +432,45 @@ text {
  transform:translatex(16px) translatey(24px) !important;
 }
 
-/* Container */
-.container{
- height:425px;
+
+
+/* Plant name */
+.container .plant-name{
+ font-size:18px;
+ text-align:center;
+ transform:translatex(76px) translatey(-156px);
+ position:relative;
+ top:-2px;
 }
 
+/* Heading */
+.container .plant-name h2{
+ width:99% !important;
+ transform:translatex(-62px) translatey(8px);
+}
+
+/* Image */
+#wateringAnimation img{
+ position:fixed;
+ visibility:visible;
+}
+
+/* Plant details */
+.container .plant-details{
+ transform:translatex(188px) translatey(-51px);
+}
+
+/* Plant detail buttons */
+.container .plant-detail-buttons{
+ transform:translatex(0px) translatey(-15px);
+}
+
+/* Plant image */
+.container > .plant-image:nth-child(2){
+ transform:translatex(0px) translatey(100px);
+}
+
+/* Image */
+.container #wateringAnimation img{
+ transform:translatex(60px) translatey(46px) !important;
+}

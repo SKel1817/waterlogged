@@ -1,0 +1,76 @@
+//index page sql statment
+SELECT id, name, path from locations join images on locations.id = images.location_id
+
+//user statment
+SELECT id FROM users WHERE username = '$username' AND password = '$password'
+
+//register
+SELECT id FROM users WHERE username = '$username' AND password = '$password'
+SELECT MAX(id) AS max_id FROM users
+INSERT INTO users (id, username, password) VALUES ($nextId,'$username', '$password')
+
+//plant list
+SELECT 
+    l.id as location_id,
+    l.name as location_name, 
+    l.temperature,
+    l.climate,
+    p.id,
+    p.name, 
+    p.traits, 
+    p.sun, 
+    p.water_freq_weekly,
+    images.path 
+    FROM plants as p 
+    join images on p.id = images.plant_id
+    join locations as l on p.location_id = l.id
+    where p.location_id = $location_id;
+
+//myPlant.php
+SELECT 
+    user_plants.id as user_pant_id,
+    users.id, 
+    plants.id as plant_Id, 
+    plants.name, 
+    images.path FROM user_plants 
+    JOIN users ON user_plants.user_id = users.id 
+    JOIN plants ON user_plants.plant_id = plants.id 
+    JOIN images on plants.id = images.plant_id 
+    WHERE users.id = ?
+
+//logs
+SELECT
+        p.name AS PlantName,
+        l.date_watered AS DateWatered
+    FROM
+        logs as l
+    INNER JOIN user_plants up ON l.user_plant_id = up.id
+    INNER JOIN plants as p ON up.plant_id = p.id
+    WHERE up.user_id = ?
+    ORDER BY
+        l.date_watered DESC;
+
+//details
+insert into logs (id, user_plant_id, date_watered) SELECT COALESCE(MAX(id), 0) + 1, ?, NOW() from logs
+
+UPDATE user_plants JOIN (SELECT user_plant_id, MAX(date_watered) AS latest_watering_date FROM logs GROUP BY user_plant_id) AS most_recent_logs ON user_plants.id = most_recent_logs.user_plant_id SET user_plants.last_watered = most_recent_logs.latest_watering_date
+
+DELETE FROM logs WHERE user_plant_id = ?
+
+DELETE FROM user_plants WHERE id = ?
+
+SELECT
+    p.name AS PlantName,
+    p.sun,
+    p.traits,
+    p.water_freq_weekly,
+    up.last_watered,
+    i.path
+        FROM
+            user_plants as up
+        INNER JOIN plants as p ON up.plant_id = p.id
+        INNER JOIN images as i on p.id = i.plant_id
+        WHERE up.id = ?;
+
+//addToShelf
+INSERT INTO user_plants (id, user_id, plant_id) SELECT COALESCE(MAX(id), 0) + 1, ? , ? FROM user_plants;

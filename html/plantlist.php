@@ -3,7 +3,7 @@
     // Database connection details
     $servername = "localhost";
     $username = "user";
-    $password = "!";
+    $password = "pass!";
     $dbname = "waterlogged";
 
     // Create connection
@@ -13,6 +13,7 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+
      // Initialize the variable to ensure it has a default value
     $location_id = 0;
     $userLoggedIn = isset($_SESSION['user_id']);
@@ -80,6 +81,19 @@
             <li><a href="./users.php">Log In</a></li>
         </ul>
     </nav>
+    <?php if (!empty($_SESSION['added_to_shelf'])): ?>
+        <div id="shelfAnimation" style="text-align:center;">
+            <img src="../images/shelf.gif" alt="Shelf Animation">
+        </div>
+        <script>
+            // Optional: Hide the GIF after a few seconds
+            setTimeout(function() {
+                document.getElementById('shelfAnimation').style.display = 'none';
+            }, 5000); // Adjust time as needed
+        </script>
+        <?php unset($_SESSION['added_to_shelf']); // Remove the variable after showing the GIF ?>
+    <?php endif; ?>
+    
     <h1><?php echo htmlspecialchars($locationName); ?> Plant List</h1>
     <p>Temperature: <?php echo htmlspecialchars($locationTemperature); ?></p>
     <p>Climate: <?php echo htmlspecialchars($locationClimate); ?></p>
@@ -112,23 +126,16 @@
 			                $plantId = $row['id'];
 			                $shelfCheckSql = "SELECT * FROM user_plants WHERE user_id = '$userId' AND plant_id = '$plantId'";
 			                $shelfCheckResult = $conn->query($shelfCheckSql);
-
-			                if ($shelfCheckResult->num_rows > 0) {
-			                    // Plant is already in the user's shelf
-			                    echo "Already in Shelf, can't add twice";
-			                } else {
 			                    // Plant is not in the user's shelf, show the add button
-			                    ?>
-			                    <form method='post' action='addToShelf.php'>
-			                        <input type='hidden' name='plant_id' value='<?php echo htmlspecialchars($row['id']); ?>'>
-			                        <input type='hidden' name='user_id' value='<?php echo htmlspecialchars($_SESSION['user_id']); ?>'>
-			                        <input type='hidden' name='location_id' value='<?php echo htmlspecialchars($row['location_id']); ?>'>
-			                        <input type='submit' name='add_to_shelf' value='Add to My Shelf'>
-			                    </form>
-			                    <?php
-               				 }
-               				 ?>                       
-               			 </td>
+			                ?>
+		                    <form method='post' action='addToShelf.php' id="addToShelfForm">
+		                        <input type='hidden' name='plant_id' value='<?php echo htmlspecialchars($row['id']); ?>'>
+		                        <input type='hidden' name='user_id' value='<?php echo htmlspecialchars($_SESSION['user_id']); ?>'>
+		                        <input type='hidden' name='location_id' value='<?php echo htmlspecialchars($row['location_id']); ?>'>
+		                        <input type='submit' name='add_to_shelf' value='Add to My Shelf'>
+		                    </form>
+		                    
+                      		
                     <?php endif; ?>
                 </tr>
             <?php endwhile; ?>
@@ -136,5 +143,6 @@
             <tr><td colspan='5' style='border: 1px solid black;'>0 results</td></tr>
         <?php endif; ?>
     </table>
+
 </body>
 </html>

@@ -22,7 +22,9 @@ if ($conn->connect_error) {
 }
 
 // SQL to get user plants
-$sql = "SELECT users.id, 
+$sql = "SELECT 
+user_plants.id as user_pant_id,
+users.id, 
 plants.id as plant_Id, 
 plants.name, 
 images.path FROM user_plants 
@@ -42,14 +44,15 @@ if ($stmt = $conn->prepare($sql)) {
   $stmt->execute();
   
   // Bind the results to variables
-  $stmt->bind_result($userId, $plantId, $plantName, $imagePath);
+  $stmt->bind_result($user_plant_id, $userId, $plantId, $plantName, $imagePath);
   
   // Fetch the results into an array
   while ($stmt->fetch()) {
     $userPlants[] = [
             'name' => $plantName, 
             'imagePath' => $imagePath, 
-            'plant_Id' => $plantId  // Corrected variable name
+            'plant_Id' => $plantId,  // Corrected variable name
+            'user_plant_id' => $user_plant_id
         ];  }
   
   // Close the statement
@@ -99,7 +102,9 @@ $conn->close();
                     echo '<section class="layout" id="shelf' . $shelfIndex . '">';
                     $shelfIndex++;
                 }
-                 $detailsUrl = 'details.php?plant_id=' . urlencode($plantDetails['plant_Id']) . '&user_id=' . urlencode($_SESSION['user_id']);
+                 // Notice that you only need user_plant_id to uniquely identify the record, so plant_id and user_id are not needed
+                 $detailsUrl = 'details.php?user_plant_id=' . urlencode($plantDetails['user_plant_id']);
+                 
                 
                 echo '<div style="color: white">';
                 echo '<a href="' . htmlspecialchars($detailsUrl) . '" style="text-decoration: none; color: inherit;">';
