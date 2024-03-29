@@ -48,13 +48,14 @@
         $result = $conn->query($sql);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div><article>';
+            echo '<div> <a href="../html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '"><article id="aLocation">';
             // Image
-            echo '<img src="' . htmlspecialchars($row['path']) . '" alt="' . htmlspecialchars($row['name']) . '">';
+            echo '<img id="lImg" src="' . htmlspecialchars($row['path']) . '" alt="' . htmlspecialchars($row['name']) . '">';
             // Button (styled link)
-            echo '<a href="../html/plantlist.php?location_id=' . htmlspecialchars($row['id']) . '" class="location-button">View ' . htmlspecialchars($row['name']) . '</a>';
-            echo '</article></div>';
+            echo '<span class="location-button">View ' . htmlspecialchars($row['name']) . '</span>';
+            echo '</article></a></div>';
         }
+
         
       ?>
     </section>

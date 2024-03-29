@@ -1,40 +1,59 @@
+/* 
+Colour Palette
+#F1F7ED - Almost White
+#243E36 - Dark Green
+#7CA982 - Light Green
+#E0EEC6 - Mint
+#C2A83E - Gold
+ */
+
+/* ----------------------------------------------- All Page Formatting ---------------------------------------------------- */
+
+/* Resetting the margin and padding */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
+/* Setting the background colour */
 body {
-  background-color: #a9cf87;
+  background-color: #f1f7ed;
 }
 
+/* Setting the font size and the font colour of "WaterLogged" on the navbar */
 .please {
   font-size: 50px;
+  color: #c2a83e;
 }
 
+/* Navbar formatting */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #809d66;
+  background-color: #243e36;
 }
 
-.nav-links a {
-  color: #f0dbbc;
-}
-
+/* Navbar formatting */
 .nav-links {
   display: flex;
   list-style: none;
   font-size: 20px;
 }
 
+/* Navbar links formatting */
 .nav-links li {
   display: inline-block;
   padding-right: 25px;
   margin-left: 10px;
 }
 
+/* Navbar links colour */
+.nav-links a {
+  color: #f1f7ed;
+}
+
+/* Setting logo size */
 #logo {
   height: 75px;
 }

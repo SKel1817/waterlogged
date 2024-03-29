@@ -1,43 +1,66 @@
+/* 
+Colour Palette
+#F1F7ED - Almost White
+#243E36 - Dark Green
+#7CA982 - Light Green
+#E0EEC6 - Mint
+#C2A83E - Gold
+ */
+
+/* ----------------------------------------------- All Page Formatting ---------------------------------------------------- */
+
+/* Resetting the margin and padding */
 * {
   margin: 0;
   padding: 0;
 }
 
+/* Setting the background colour */
 body {
-  background-color: #a9cf87;
+  background-color: #f1f7ed;
 }
 
+/* Setting the font size and the font colour of "WaterLogged" on the navbar */
 .please {
   font-size: 50px;
+  color: #c2a83e;
 }
 
+/* Navbar formatting */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #809d66;
+  background-color: #243e36;
 }
 
-.nav-links a {
-  color: #f0dbbc;
-}
-
+/* Navbar formatting */
 .nav-links {
   display: flex;
   list-style: none;
   font-size: 20px;
 }
 
+/* Navbar links formatting */
 .nav-links li {
   display: inline-block;
   padding-right: 25px;
   margin-left: 10px;
 }
 
+/* Navbar links colour */
+.nav-links a {
+  color: #f1f7ed;
+}
+
+/* Setting logo size */
 #logo {
   height: 75px;
 }
 
+/* ----------------------------------------------- Plant Home Formatting ---------------------------------------------------- */
+
+/* Grid layout formatting */
 .layout {
   width: 100%;
 
@@ -50,22 +73,55 @@ nav {
   align-content: center;
 }
 
-article {
+/* Formatting the location articles */
+#aLocation {
+  background-color: #7ca982;
   margin-top: 15px;
-  height: 30vh;
-  border: #809d66 2px solid;
+  border: #7ca982 2px solid;
   border-radius: 5%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: max-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-article img {
-  max-width: 90%;
-  max-height: 90%;
+/* Highlight the location articles when hovering over them */
+#aLocation:hover {
+  background-image: linear-gradient(#c2a83e, #7ca982);
+  border: #c2a83e 2px solid;
 }
 
+/* Styling the location-button */
+.location-button {
+  display: block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #243e36;
+  color: #e0eec6;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: auto;
+  text-decoration: none;
+  width: 50%;
+  margin-top: 10px;
+}
+
+/* Removing the underline from the location-buttons */
+#aLocation .location-button {
+  text-decoration: none;
+}
+
+/* Setting the size of the images so they are all the same */
+#lImg {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ----------------------------------------------- Log In Formatting ---------------------------------------------------- */
 
 .login {
   width: 100%;
@@ -76,14 +132,27 @@ article img {
 
   justify-content: center;
   align-content: center;
-
 }
 
 .login div {
   display: flex;
   justify-content: center;
-
-
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: right;
+}
+.footer-Plant {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: right;
 }
 
 /* please please lpelasepelas eplas pela e */
@@ -96,28 +165,14 @@ article img {
   height: 50vh;
   width: 50vw;
   display: flex;
-  justify-content: center; 
-  
-}
-
-.location-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  background-color: #4CAF50; /* or any color you prefer */
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  justify-content: center;
 }
 
 .register-button {
   display: inline-block;
   padding: 10px 20px;
   margin: 5px;
-  background-color: #4CAF50; /* or any color you prefer */
+  background-color: #4caf50; /* or any color you prefer */
   color: white;
   text-align: center;
   text-decoration: none;
@@ -133,11 +188,12 @@ article img {
   display: block;
   margin: 0 auto;
   width: 50%; /* Adjust as needed */
-  background-color: #90EE90;
-}.centered-button {
+  background-color: #90ee90;
+}
+.centered-button {
   display: block;
   margin: 0 auto;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   font-size: 20px;
@@ -145,92 +201,28 @@ article img {
   border-radius: 5px;
   cursor: pointer;
   width: 50%; /* Adjust as needed */
-}.centered-label {
+}
+.centered-label {
   display: block;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
-* {
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  background-color: #a9cf87;
-}
-
-.please {
-  font-size: 50px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #809d66;
-}
-
-.nav-links a {
-  color: #f0dbbc;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  font-size: 20px;
-}
-
-.nav-links li {
-  display: inline-block;
-  padding-right: 25px;
-  margin-left: 10px;
-}
-
-#logo {
-  height: 75px;
-}
-
-.layout {
-  width: 100%;
-
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-
-  justify-content: center;
-  align-content: center;
-}
-
-article {
-  margin-top: 15px;
-  height: 30vh;
-  border: #809d66 2px solid;
-  border-radius: 5%;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-article img {
-  width:150px;
-  height:150px; 
-  display:block; 
-  margin:auto;
-}
 #registerForm {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow:0px 0px 10px 0px #000000;
-  background:linear-gradient(to top, #ada996 0%, #dbdbdb 50%, #f2f2f2 92%, #eaeaea 100%);
-  
+  box-shadow: 0px 0px 10px 0px #000000;
+  background: linear-gradient(
+    to top,
+    #ada996 0%,
+    #dbdbdb 50%,
+    #f2f2f2 92%,
+    #eaeaea 100%
+  );
 }
-
 
 .login {
   width: 100%;
@@ -261,25 +253,11 @@ article img {
   justify-content: center;
 }
 
-.location-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  background-color: #4CAF50; /* or any color you prefer */
-  color: white;
-  text-align: center;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin:auto; 
-  text-decoration:none;
-}
-
 .register-button {
   display: inline-block;
   padding: 10px 20px;
   margin: 5px;
-  background-color: #4CAF50; /* or any color you prefer */
+  background-color: #4caf50; /* or any color you prefer */
   color: white;
   text-align: center;
   text-decoration: none;
@@ -294,16 +272,16 @@ article img {
   background-color: #c3e6cb;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .plant-image {
   height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width:150px;
-  height:150px; 
-  display:block; 
+  width: 150px;
+  height: 150px;
+  display: block;
 }
 .plant-name {
   font-size: 24px;
@@ -329,15 +307,9 @@ article img {
   background-color: #b8daff;
   color: #004085;
 }
-text {
-  color:white;
-}
-.centered-heading {
-  text-align: center;
-}
 
 text {
-  color:white;
+  color: white;
 }
 .centered-heading {
   text-align: center;
@@ -347,11 +319,12 @@ text {
   display: block;
   margin: 0 auto;
   width: 50%; /* Adjust as needed */
-  background-color: #90EE90;
-}.centered-button {
+  background-color: #90ee90;
+}
+.centered-button {
   display: block;
   margin: 0 auto;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   font-size: 20px;
@@ -359,118 +332,139 @@ text {
   border-radius: 5px;
   cursor: pointer;
   width: 50%; /* Adjust as needed */
-}.centered-label {
+}
+.centered-label {
   display: block;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
 .centered-form {
-    text-align: center;
+  text-align: center;
 }
+
 .login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 /* Heading */
-.container .plant-name h2{
- width:27% !important;
- transform:translatex(0px) translatey(0px);
+.container .plant-name h2 {
+  width: 27% !important;
+  transform: translatex(0px) translatey(0px);
 }
 
 /* Plant name */
-.container .plant-name{
- width:597px;
- transform:translatex(150px) translatey(-158px);
+.container .plant-name {
+  width: 597px;
+  transform: translatex(150px) translatey(-158px);
 }
 
 /* Plant details */
-.container .plant-details{
- width:68% !important;
- transform:translatex(146px) translatey(-143px);
+.container .plant-details {
+  width: 68% !important;
+  transform: translatex(146px) translatey(-143px);
 }
 /* Button */
-.container .plant-detail-buttons .water-button{
- transform:translatex(217px) translatey(-6px);
+.container .plant-detail-buttons .water-button {
+  transform: translatex(217px) translatey(-6px);
 }
 
 /* Button */
-.container .plant-detail-buttons .delete-button{
- transform:translatex(66px) translatey(-5px);
+.container .plant-detail-buttons .delete-button {
+  transform: translatex(66px) translatey(-5px);
 }
 
 /* Plant detail buttons */
-.container .plant-detail-buttons{
- transform:translatex(-7px) translatey(-47px);
+.container .plant-detail-buttons {
+  transform: translatex(-7px) translatey(-47px);
 }
 /* Form Division */
-.container .plant-detail-buttons form:nth-child(1){
- width:43%;
- transform:translatex(0px) translatey(-16px);
+.container .plant-detail-buttons form:nth-child(1) {
+  width: 43%;
+  transform: translatex(0px) translatey(-16px);
 }
 
 /* Form Division */
-.container .plant-detail-buttons form:nth-child(2){
- width:36%;
- transform:translatex(346px) translatey(-25px) !important;
+.container .plant-detail-buttons form:nth-child(2) {
+  width: 36%;
+  transform: translatex(346px) translatey(-25px) !important;
 }
 
 /* Button */
-.plant-detail-buttons form .water-button{
- transform:translatex(57px) translatey(-5px) !important;
+.plant-detail-buttons form .water-button {
+  transform: translatex(57px) translatey(-5px) !important;
 }
 
 /* Plant detail buttons */
-.container .plant-detail-buttons{
- transform:translatex(-6px) translatey(-84px);
+.container .plant-detail-buttons {
+  transform: translatex(-6px) translatey(-84px);
 }
 
 /* Form Division */
-.container .plant-detail-buttons form{
- transform:translatex(16px) translatey(24px) !important;
+.container .plant-detail-buttons form {
+  transform: translatex(16px) translatey(24px) !important;
 }
-
-
 
 /* Plant name */
-.container .plant-name{
- font-size:18px;
- text-align:center;
- transform:translatex(76px) translatey(-156px);
- position:relative;
- top:-2px;
+.container .plant-name {
+  font-size: 18px;
+  text-align: center;
+  transform: translatex(76px) translatey(-156px);
+  position: relative;
+  top: -2px;
 }
 
 /* Heading */
-.container .plant-name h2{
- width:99% !important;
- transform:translatex(-62px) translatey(8px);
+.container .plant-name h2 {
+  width: 99% !important;
+  transform: translatex(-62px) translatey(8px);
 }
 
 /* Image */
-#wateringAnimation img{
- position:fixed;
- visibility:visible;
+#wateringAnimation img {
+  position: fixed;
+  visibility: visible;
 }
 
 /* Plant details */
-.container .plant-details{
- transform:translatex(188px) translatey(-51px);
+.container .plant-details {
+  transform: translatex(188px) translatey(-51px);
 }
 
 /* Plant detail buttons */
-.container .plant-detail-buttons{
- transform:translatex(0px) translatey(-15px);
+.container .plant-detail-buttons {
+  transform: translatex(0px) translatey(-15px);
 }
 
 /* Plant image */
-.container > .plant-image:nth-child(2){
- transform:translatex(0px) translatey(100px);
+.container > .plant-image:nth-child(2) {
+  transform: translatex(0px) translatey(100px);
 }
 
 /* Image */
-.container #wateringAnimation img{
- transform:translatex(60px) translatey(46px) !important;
+.container #wateringAnimation img {
+  transform: translatex(60px) translatey(46px) !important;
+}
+
+/* /already logged out/ */
+.logged-in-container {
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  box-shadow: 0px 0px 10px 0px #000000;
+  background: linear-gradient(
+    to top,
+    #ada996 0%,
+    #dbdbdb 50%,
+    #f2f2f2 92%,
+    #eaeaea 100%
+  );
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center;
 }
