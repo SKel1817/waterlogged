@@ -1,6 +1,5 @@
-![WaterLogged(1)](https://github.com/SKel1817/waterlogged/assets/123426684/b90ad0e0-fb62-4ed6-891b-76831fff29a1)
 # Waterlogged 
-**Grow, Track, Flourish.** Made for the teams CSI 3450 Final project, Waterlogged is a dynamic web platform dedicated to enthusiasts of plant life. Leveraging the full potential of HTML, CSS, JavaScript, and PHP, Waterlogged offers an interactive and engaging environment to track and manage your plant friends.
+![WaterLogged(1)(4)](https://github.com/SKel1817/waterlogged/assets/123426684/ad628140-e9d1-47eb-b118-ffe869b52f37)**Grow, Track, Flourish.** Made for the teams CSI 3450 Final project, Waterlogged is a dynamic web platform dedicated to enthusiasts of plant life. Leveraging the full potential of HTML, CSS, JavaScript, and PHP, Waterlogged offers an interactive and engaging environment to track and manage your plant friends.
 
 ## Getting Started
 Comming soon the ability to access waterlogged striaght from the web no setup required!
