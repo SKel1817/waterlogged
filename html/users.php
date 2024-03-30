@@ -71,7 +71,8 @@ $conn->close();
             </div>
             <ul>
             <li><a href="../index.php">Plant Home</a></li>
-            <li><a href="../html/myPlants.php">My Plants</a></li>            <li><a href="../html/logs.php">Logs</a></li>
+            <li><a href="../html/myPlants.php">My Plants</a></li>            
+            <li><a href="../html/logs.php">Logs</a></li>
             <li><a href="#">Log In</a></li>
         </ul>
         </nav>

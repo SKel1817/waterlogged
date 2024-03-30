@@ -17,6 +17,66 @@ Colour Palette
 
 /* Setting the background colour */
 body {
+  background-color: #7ca982;
+}
+
+/* Setting the font size and the font colour of "WaterLogged" on the navbar */
+.please {
+  font-size: 50px;
+  color: #e0eec6;
+}
+
+/* Navbar formatting */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #243e36;
+}
+
+/* Navbar formatting */
+.nav-links {
+  display: flex;
+  list-style: none;
+  font-size: 20px;
+}
+
+/* Navbar links formatting */
+.nav-links li {
+  display: inline-block;
+  padding-right: 25px;
+  margin-left: 10px;
+}
+
+/* Navbar links colour */
+.nav-links a {
+  color: #c2a83e;
+}
+
+/* Setting logo size */
+#logo {
+  height: 75px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: right;
+}
+
+/* ----------------------------------------------- Plant Home Formatting ---------------------------------------------------- */
+
+/* Resetting the margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Setting the background colour */
+body {
   background-color: #f1f7ed;
 }
 
@@ -123,6 +183,7 @@ nav {
 
 /* ----------------------------------------------- Log In Formatting ---------------------------------------------------- */
 
+/* Setting up grid for login page */
 .login {
   width: 100%;
 
@@ -132,33 +193,22 @@ nav {
 
   justify-content: center;
   align-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+/* Formatting divs inside login section */
 .login div {
   display: flex;
   justify-content: center;
 }
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: right;
-}
-.footer-Plant {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: right;
-}
 
-/* please please lpelasepelas eplas pela e */
-
+/* Formatting article inside login section */
 .login article {
-  background-color: #d2d2d2;
+  background-color: #f1f7ed;
   border: #809d66 2px solid;
   border-radius: 5%;
   margin-top: 15px;
@@ -168,47 +218,43 @@ nav {
   justify-content: center;
 }
 
-.register-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  background-color: #4caf50; /* or any color you prefer */
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.centered-heading {
-  text-align: center;
-}
-
+/* Center input boxes */
 .centered-input {
   display: block;
   margin: 0 auto;
   width: 50%; /* Adjust as needed */
-  background-color: #90ee90;
+  background-color: #e0eec6;
 }
+
+/* Center label boxes */
+.centered-label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #243e36;
+}
+
+/* Center the submit button */
 .centered-button {
   display: block;
   margin: 0 auto;
-  background-color: #4caf50;
+  background-color: #e0eec6;
   color: white;
   padding: 14px 20px;
   font-size: 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 50%; /* Adjust as needed */
-}
-.centered-label {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
+  width: 50%;
 }
 
+/* Center the heading */
+.centered-heading {
+  text-align: center;
+}
+
+/* Formatting for the register form article */
 #registerForm {
   position: absolute;
   top: 50%;
@@ -224,48 +270,60 @@ nav {
   );
 }
 
-.login {
-  width: 100%;
-
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-columns: repeat(1, 1fr);
-
-  justify-content: center;
-  align-content: center;
-}
-
-.login div {
-  display: flex;
-  justify-content: center;
-}
-
-/* please please lpelasepelas eplas pela e */
-
-.login article {
-  background-color: #d2d2d2;
-  border: #809d66 2px solid;
-  border-radius: 5%;
-  margin-top: 15px;
-  height: 50vh;
-  width: 50vw;
-  display: flex;
-  justify-content: center;
-}
-
+/* Formatting for the register button */
 .register-button {
   display: inline-block;
   padding: 10px 20px;
   margin: 5px;
-  background-color: #4caf50; /* or any color you prefer */
+  background-color: #7ca982;
   color: white;
   text-align: center;
   text-decoration: none;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0px 0px 11px 1px #ffffff;
 }
 
+
+/* already logged out */
+.logged-in-container {
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  box-shadow: 0px 0px 10px 0px #000000;
+  background: linear-gradient(
+    to top,
+    #ada996 0%,
+    #dbdbdb 50%,
+    #f2f2f2 92%,
+    #eaeaea 100%
+  );
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center;
+}
+
+/* ----------------------------------------------- Logs Formatting ---------------------------------------------------- */
+
+/* Formatting for the logs table */
+.logs-container {
+  max-width: 90%;
+  margin: 50px auto;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #000000;
+  background: #7ca982;
+  height: auto; /* Ensure the container height adjusts based on content */
+  overflow: hidden;
+}
+
+/* ----------------------------------------------- Details Formatting ---------------------------------------------------- */
+
+/* Formatting for the watering can container */
 .container {
   max-width: 600px;
   margin: 50px auto;
@@ -274,6 +332,8 @@ nav {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Formatting for plant image */
 .plant-image {
   height: 150px;
   background-size: contain;
@@ -283,14 +343,20 @@ nav {
   height: 150px;
   display: block;
 }
+
+/* Format for plant name */
 .plant-name {
   font-size: 24px;
   color: #155724;
 }
+
+/* Formatting for plant details */
 .plant-details {
   font-size: 18px;
   color: #155724;
 }
+
+/* Formatting for delete and water buttons */
 .button {
   padding: 10px 20px;
   border: none;
@@ -299,56 +365,19 @@ nav {
   font-size: 16px;
   margin-top: 10px;
 }
+
+/* Colouring delete button */
 .delete-button {
   background-color: #f5c6cb;
   color: #721c24;
 }
+
+/* Colouring water buttons */
 .water-button {
   background-color: #b8daff;
   color: #004085;
 }
 
-text {
-  color: white;
-}
-.centered-heading {
-  text-align: center;
-}
-
-.centered-input {
-  display: block;
-  margin: 0 auto;
-  width: 50%; /* Adjust as needed */
-  background-color: #90ee90;
-}
-.centered-button {
-  display: block;
-  margin: 0 auto;
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 50%; /* Adjust as needed */
-}
-.centered-label {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-}
-.centered-form {
-  text-align: center;
-}
-
-.login {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 /* Heading */
 .container .plant-name h2 {
   width: 27% !important;
@@ -446,25 +475,4 @@ text {
 /* Image */
 .container #wateringAnimation img {
   transform: translatex(60px) translatey(46px) !important;
-}
-
-/* /already logged out/ */
-.logged-in-container {
-  max-width: 600px;
-  margin: 50px auto;
-  border-radius: 8px;
-  padding: 20px;
-  width: 400px;
-  height: 300px;
-  box-shadow: 0px 0px 10px 0px #000000;
-  background: linear-gradient(
-    to top,
-    #ada996 0%,
-    #dbdbdb 50%,
-    #f2f2f2 92%,
-    #eaeaea 100%
-  );
-  display: flex; /* Use flexbox layout */
-  flex-direction: column; /* Arrange items vertically */
-  align-items: center;
 }
