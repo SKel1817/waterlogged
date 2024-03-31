@@ -7,67 +7,58 @@ Colour Palette
 #C2A83E - Gold
  */
 
-/* ----------------------------------------------- All Page Formatting ---------------------------------------------------- */
-
-/* Resetting the margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* Setting the background colour */
-body {
-  background-color: #7ca982;
-}
-
-/* Setting the font size and the font colour of "WaterLogged" on the navbar */
-.please {
-  font-size: 50px;
-  color: #e0eec6;
-}
-
-/* Navbar formatting */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #243e36;
-}
-
-/* Navbar formatting */
-.nav-links {
-  display: flex;
-  list-style: none;
-  font-size: 20px;
-}
-
-/* Navbar links formatting */
-.nav-links li {
-  display: inline-block;
-  padding-right: 25px;
-  margin-left: 10px;
-}
-
-/* Navbar links colour */
-.nav-links a {
-  color: #c2a83e;
-}
-
-/* Setting logo size */
-#logo {
-  height: 75px;
-}
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: black;
-  text-align: right;
-}
-
 /* ----------------------------------------------- Plant Home Formatting ---------------------------------------------------- */
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 
 /* Resetting the margin and padding */
 * {
@@ -116,6 +107,15 @@ nav {
 /* Setting logo size */
 #logo {
   height: 75px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: right;
 }
 
 /* ----------------------------------------------- Plant Home Formatting ---------------------------------------------------- */
@@ -284,7 +284,6 @@ nav {
   cursor: pointer;
   box-shadow: 0px 0px 11px 1px #ffffff;
 }
-
 
 /* already logged out */
 .logged-in-container {
@@ -476,28 +475,30 @@ nav {
 .container #wateringAnimation img {
   transform: translatex(60px) translatey(46px) !important;
 }
-/*-----------------------------------------------------plantlist formatting-----------------------------------------*/
-/* header centering*/
 
-.header-plant-list{
+/*-----------------------------------------------------plantlist formatting-----------------------------------------*/
+
+/* header centering*/
+.header-plant-list {
   text-align: center;
-  }
-  /*main header*/
-  .top-header-PL {
-  color:#243E36;
+}
+
+/*main header*/
+.top-header-PL {
+  color: #243e36;
   font-weight: bold;
-  }
-  /*temp*/
-  .temperature {
-  
-  color:green;
+}
+
+/*temp*/
+.temperature {
+  color: green;
   font-weight: bold;
-  font-size:20px;
-  }
-  /* climate*/
-  .climate {
-  
+  font-size: 20px;
+}
+
+/* climate*/
+.climate {
   color: gold;
   font-weight: bold;
-  font-size:20px;
-      }
+  font-size: 20px;
+}

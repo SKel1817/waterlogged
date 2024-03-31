@@ -88,7 +88,7 @@ $conn->close();
         <li><a href="../html/users.php">Log In</a></li>
       </ul>
     </nav>
-    <div id="frame">
+    <div id="frame"> </div>
         <?php
         $shelfIndex = 1;
         if (!empty($userPlants)) {
@@ -119,10 +119,9 @@ $conn->close();
                 }
             }
         } else {
-            echo '<p>You have no plants yet.</p>';
+            echo '<p id="noPlantTXT">You have no plants yet.</br> <a id"noPlantA" href="../index.php">Click here to add some!</a></p>';
         }
         ?>
-    </div>
 </div>
 
   </body>
