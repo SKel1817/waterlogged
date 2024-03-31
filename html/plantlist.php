@@ -1,9 +1,10 @@
+GNU nano 4.8                                                                                                                                                                                                                                                                                                                  plantlist.php                                                                                                                                                                                                                                                                                                                            
 <?php
     session_start();
     // Database connection details
     $servername = "localhost";
-    $username = "user";
-    $password = "pass!";
+    $username = "cof";
+    $password = "cOwmoo1324!";
     $dbname = "waterlogged";
 
     // Create connection
@@ -71,7 +72,7 @@
         <div class="logo">
         <a href="../index.php">
             <img src="../images/Waterlogged_Logo.png" alt="Waterlogged Logo" id="logo"/>
-		</a>
+                </a>
         </div>
         <div class="please"style="position: absolute; left: 50%; transform: translateX(-50%);">Waterlogged</div>
         <ul>
@@ -93,54 +94,55 @@
         </script>
         <?php unset($_SESSION['added_to_shelf']); // Remove the variable after showing the GIF ?>
     <?php endif; ?>
-    
-    <h1><?php echo htmlspecialchars($locationName); ?> Plant List</h1>
-    <p>Temperature: <?php echo htmlspecialchars($locationTemperature); ?></p>
-    <p>Climate: <?php echo htmlspecialchars($locationClimate); ?></p>
+    <div class ="header-plant-list">
+    <h1 class="top-header-PL"><?php echo htmlspecialchars($locationName); ?> Plant List</h1>
+    <p class="temperature">Temperature: <?php echo htmlspecialchars($locationTemperature); ?></p>
+    <p class="climate">Climate: <?php echo htmlspecialchars($locationClimate); ?></p>
+</div>
     <table style=" table-layout: fixed;">
     <tr>
-        <th style="border: 1px solid black;">Image</th>
-        <th style="border: 1px solid black;">Plant</th>
-        <th style="border: 1px solid black;">Traits</th>
-        <th style="border: 1px solid black;">Sun</th>
-        <th style="border: 1px solid black;">Water</th>
+        <th style="border: 2px solid black;color:light green;font-weight:bold;font-size: 20px;">Image</th>
+        <th style="border: 2px solid black;color:#7CA982;font-weight:bold;font-size: 20px;">Plant</th>
+        <th style="border: 2px solid black;color:#243E36;;font-weight:bold;font-size: 20px;">Traits</th>
+        <th style="border: 2px solid black;color:#C2A83E;font-weight:bold;font-size: 20px;">Sun</th>
+        <th style="border: 2px solid black;color:blue;font-weight:bold;font-size: 20px;">Water</th>
         <?php if ($userLoggedIn): ?>
-            <th style="border: 1px solid black;">Action</th>
+            <th style="border: 2px solid black;color:green;font-weight:bold;font-size: 20px; ">Action</th>
         <?php endif; ?>
     </tr>
     <?php if ($result->num_rows > 0): ?>
             <?php while($row = $result->fetch_assoc()): ?>
                 <tr>
-                    <td style='border: 1px solid black;'>
+                    <td style='border: 2px solid black;'>
                         <img src="../<?php echo htmlspecialchars($row['path']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>" style="width:100px;height:auto;">
                     </td>
-                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["name"]); ?></td>
-                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["traits"]); ?></td>
-                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["sun"]); ?></td>
-                    <td style='border: 1px solid black;'><?php echo htmlspecialchars($row["water_freq_weekly"]); ?></td>
+                    <td style='border: 2px solid black;color:#7CA982;font-weight:bold;'><?php echo htmlspecialchars($row["name"]); ?></td>
+                    <td style='border: 2px solid black;color:#243E36;font-weight:bold;'><?php echo htmlspecialchars($row["traits"]); ?></td>
+                    <td style='border: 2px solid black;color:#C2A83E;font-weight:bold;'><?php echo htmlspecialchars($row["sun"]); ?></td>
+                    <td style='border: 2px solid black;color:blue;font-weight:bold;'><?php echo htmlspecialchars($row["water_freq_weekly"]); ?></td>
                     <?php if ($userLoggedIn): ?>
-                        <td style='border: 1px solid black;'>
+                        <td style='border: 2px solid black;'>
                         <?php
-			                // Check if the plant is already in the user's shelf
-			                $userId = $_SESSION['user_id'];
-			                $plantId = $row['id'];
-			                $shelfCheckSql = "SELECT * FROM user_plants WHERE user_id = '$userId' AND plant_id = '$plantId'";
-			                $shelfCheckResult = $conn->query($shelfCheckSql);
-			                    // Plant is not in the user's shelf, show the add button
-			                ?>
-		                    <form method='post' action='addToShelf.php' id="addToShelfForm">
-		                        <input type='hidden' name='plant_id' value='<?php echo htmlspecialchars($row['id']); ?>'>
-		                        <input type='hidden' name='user_id' value='<?php echo htmlspecialchars($_SESSION['user_id']); ?>'>
-		                        <input type='hidden' name='location_id' value='<?php echo htmlspecialchars($row['location_id']); ?>'>
-		                        <input type='submit' name='add_to_shelf' value='Add to My Shelf'>
-		                    </form>
-		                    
-                      		
+                                        // Check if the plant is already in the user's shelf
+                                        $userId = $_SESSION['user_id'];
+                                        $plantId = $row['id'];
+                                        $shelfCheckSql = "SELECT * FROM user_plants WHERE user_id = '$userId' AND plant_id = '$plantId'";
+                                        $shelfCheckResult = $conn->query($shelfCheckSql);
+                                            // Plant is not in the user's shelf, show the add button
+                                        ?>
+                                    <form method='post' action='addToShelf.php' id="addToShelfForm">
+                                        <input type='hidden' name='plant_id' value='<?php echo htmlspecialchars($row['id']); ?>'>
+                                        <input type='hidden' name='user_id' value='<?php echo htmlspecialchars($_SESSION['user_id']); ?>'>
+                                        <input type='hidden' name='location_id' value='<?php echo htmlspecialchars($row['location_id']); ?>'>
+                                        <input type='submit' name='add_to_shelf' value='Add to My Shelf'style='background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px;'>
+                                    </form>
+
+
                     <?php endif; ?>
                 </tr>
             <?php endwhile; ?>
         <?php else: ?>
-            <tr><td colspan='5' style='border: 1px solid black;'>0 results</td></tr>
+            <tr><td colspan='5' style='border: 2px solid black;'>0 results</td></tr>
         <?php endif; ?>
     </table>
 

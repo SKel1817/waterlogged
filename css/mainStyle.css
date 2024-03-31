@@ -476,3 +476,28 @@ nav {
 .container #wateringAnimation img {
   transform: translatex(60px) translatey(46px) !important;
 }
+/*-----------------------------------------------------plantlist formatting-----------------------------------------*/
+/* header centering*/
+
+.header-plant-list{
+  text-align: center;
+  }
+  /*main header*/
+  .top-header-PL {
+  color:#243E36;
+  font-weight: bold;
+  }
+  /*temp*/
+  .temperature {
+  
+  color:green;
+  font-weight: bold;
+  font-size:20px;
+  }
+  /* climate*/
+  .climate {
+  
+  color: gold;
+  font-weight: bold;
+  font-size:20px;
+      }
