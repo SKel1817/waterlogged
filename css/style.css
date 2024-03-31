@@ -24,6 +24,9 @@ body {
 .please {
   font-size: 50px;
   color: #c2a83e;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Navbar formatting */
@@ -60,6 +63,7 @@ nav {
 
 /* ----------------------------------------------- My Plants Formatting ---------------------------------------------------- */
 
+/* Formatting for the frame of the shelf */
 #frame {
   position: absolute;
   top: 20%;
@@ -71,6 +75,8 @@ nav {
   background-color: #442b06;
 }
 
+/* I know these will most likely soon become pointless, im just spring cleaning atm */
+/* Formatting for the first shelf */
 #shelf1 {
   position: absolute;
   top: 5%;
@@ -83,6 +89,7 @@ nav {
   align-items: end;
 }
 
+/* Formatting for the second shelf */
 #shelf2 {
   position: absolute;
   top: 35%;
@@ -95,6 +102,7 @@ nav {
   align-items: end;
 }
 
+/* Formatting for the third shelf */
 #shelf3 {
   position: absolute;
   top: 65%;
@@ -107,6 +115,7 @@ nav {
   align-items: end;
 }
 
+/* Adding the grid that goes inside the shelves */
 .layout {
   width: 100%;
 
@@ -119,18 +128,24 @@ nav {
   text-align: center;
 }
 
+/* Setting the size for the images in the shelf */
 #shelf1 div img {
   width: 100%;
 }
 
-.please {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+/* Adding bordrs to the table ? */
+table,
+th,
+td {
+  border: 5px solid black;
 }
 
-table, th, td {
-  border:5px solid black;
+/* Footer formating */
+.footer-Plant {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: right;
 }
-
-
