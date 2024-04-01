@@ -247,6 +247,7 @@ nav {
   border-radius: 5px;
   cursor: pointer;
   width: 50%;
+  box-shadow: 0px 0px 30px 5px #ffffff;
 }
 
 /* Center the heading */
