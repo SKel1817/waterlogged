@@ -134,7 +134,7 @@ GNU nano 4.8                                                                    
                                         <input type='hidden' name='plant_id' value='<?php echo htmlspecialchars($row['id']); ?>'>
                                         <input type='hidden' name='user_id' value='<?php echo htmlspecialchars($_SESSION['user_id']); ?>'>
                                         <input type='hidden' name='location_id' value='<?php echo htmlspecialchars($row['location_id']); ?>'>
-                                        <input type='submit' name='add_to_shelf' value='Add to My Shelf'style='background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px;'>
+                                        <input id="btnAddShelf" type='submit' name='add_to_shelf' value='Add to My Shelf'>
                                     </form>
 
 

@@ -9,6 +9,57 @@ Colour Palette
 
 /* ----------------------------------------------- All Page Formatting ---------------------------------------------------- */
 
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 /* Resetting the margin and padding */
 * {
   margin: 0;
@@ -24,6 +75,9 @@ body {
 .please {
   font-size: 50px;
   color: #c2a83e;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Navbar formatting */
@@ -60,20 +114,23 @@ nav {
 
 /* ----------------------------------------------- My Plants Formatting ---------------------------------------------------- */
 
+/* Formatting for the frame of the shelf */
 #frame {
   position: absolute;
   top: 20%;
   left: 0;
   right: 0;
   width: 45vw;
-  height: 100vh;
+  height: 125vh;
   margin: auto;
   background-color: #442b06;
 }
 
+/* I know these will most likely soon become pointless, im just spring cleaning atm */
+/* Formatting for the first shelf */
 #shelf1 {
   position: absolute;
-  top: 5%;
+  top: 25%;
   left: 0;
   right: 0;
   width: 40vw;
@@ -83,9 +140,10 @@ nav {
   align-items: end;
 }
 
+/* Formatting for the second shelf */
 #shelf2 {
   position: absolute;
-  top: 35%;
+  top: 55%;
   left: 0;
   right: 0;
   width: 40vw;
@@ -95,9 +153,10 @@ nav {
   align-items: end;
 }
 
+/* Formatting for the third shelf */
 #shelf3 {
   position: absolute;
-  top: 65%;
+  top: 85%;
   left: 0;
   right: 0;
   width: 40vw;
@@ -107,6 +166,35 @@ nav {
   align-items: end;
 }
 
+/* Formatting for the fourth shelf */
+#shelf4 {
+  position: absolute;
+  top: 115%;
+  left: 0;
+  right: 0;
+  width: 40vw;
+  height: 25vh;
+  margin: auto;
+  background-color: #201505;
+  align-items: end;
+}
+
+#noPlantTXT {
+  font-size: 25px;
+  color: #7ca982;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#noPlantA {
+  color: #c2a83e;
+  text-decoration: none;
+}
+
+/* Adding the grid that goes inside the shelves */
 .layout {
   width: 100%;
 
@@ -119,18 +207,24 @@ nav {
   text-align: center;
 }
 
+/* Setting the size for the images in the shelf */
 #shelf1 div img {
   width: 100%;
 }
 
-.please {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+/* Adding bordrs to the table ? */
+table,
+th,
+td {
+  border: 5px solid black;
 }
 
-table, th, td {
-  border:5px solid black;
+/* Footer formating */
+.footer-Plant {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: right;
 }
-
-
