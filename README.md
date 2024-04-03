@@ -1,5 +1,6 @@
 # [Waterlogged](https://waterlogged.mothcloud.online/index.php) 
-![WaterLogged(1)(4)](https://github.com/SKel1817/waterlogged/assets/123426684/ad628140-e9d1-47eb-b118-ffe869b52f37)**Grow, Track, Flourish.** Made for the teams CSI 3450 Final project, Waterlogged is a dynamic web platform dedicated to enthusiasts of plant life. Leveraging the full potential of HTML, CSS, JavaScript, and PHP, Waterlogged offers an interactive and engaging environment to track and manage your plant friends.
+![WaterLogged(1)(4)](https://github.com/SKel1817/waterlogged/assets/123426684/ad628140-e9d1-47eb-b118-ffe869b52f37)**Grow, Track, Flourish.** Made for the teams CSI 3450 Final project, Waterlogged is a dynamic web platform dedicated to enthusiasts of plant life. Leveraging the full potential of HTML, CSS, JavaScript, and PHP, Waterlogged offers an interactive and engaging environment to track and manage your plant friends. 
+learn more about how our project works [here](https://docs.google.com/presentation/d/1MbFxPDJsnaJE7QfFcSTsviwa2AmxjTpG1v7iAL9IExM/edit?usp=sharing)
 
 ## Getting Started
 Comming soon the ability to access waterlogged striaght from the web no setup required!
