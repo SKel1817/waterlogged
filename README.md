@@ -1,4 +1,4 @@
-# Waterlogged 
+# [Waterlogged](https://waterlogged.mothcloud.online/index.php) 
 ![WaterLogged(1)(4)](https://github.com/SKel1817/waterlogged/assets/123426684/ad628140-e9d1-47eb-b118-ffe869b52f37)**Grow, Track, Flourish.** Made for the teams CSI 3450 Final project, Waterlogged is a dynamic web platform dedicated to enthusiasts of plant life. Leveraging the full potential of HTML, CSS, JavaScript, and PHP, Waterlogged offers an interactive and engaging environment to track and manage your plant friends.
 
 ## Getting Started
@@ -43,8 +43,6 @@ Before diving into Waterlogged, ensure you have the following components install
 - **Database Integration:** Utilize MySQL for robust data management and PHP for dynamic content delivery.
 
 ## Upcoming Features
-
-- Direct link to the Waterlogged website for online access without local setup.
 - Enhanced user interface with additional customization options.
 - Advanced data analytics for growth and health tracking.
 - More plants in the database
